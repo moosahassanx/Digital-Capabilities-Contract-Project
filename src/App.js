@@ -3,6 +3,7 @@ import uonImage from './img/uon-logo.png';
 import AssessmentInput from './components/AssessmentInput';
 import Chart from './components/Chart';
 import React, { Component } from 'react';
+import UploadCSV from './components/UploadCSV';
 
 class App extends Component {
 
@@ -103,6 +104,7 @@ class App extends Component {
         <div>
           <h2>Compare current results to previous results</h2>
           <h3>Upload csv file</h3>
+          <UploadCSV />
         </div>
       </div>
     );
