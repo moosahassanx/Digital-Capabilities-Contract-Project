@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/digital-capabilities-survey/static/css/main.7c5767e7.chunk.css",
-    "main.js": "/digital-capabilities-survey/static/js/main.0d9e4e9a.chunk.js",
-    "main.js.map": "/digital-capabilities-survey/static/js/main.0d9e4e9a.chunk.js.map",
+    "main.js": "/digital-capabilities-survey/static/js/main.54f6eaea.chunk.js",
+    "main.js.map": "/digital-capabilities-survey/static/js/main.54f6eaea.chunk.js.map",
     "runtime-main.js": "/digital-capabilities-survey/static/js/runtime-main.48f5fc73.js",
     "runtime-main.js.map": "/digital-capabilities-survey/static/js/runtime-main.48f5fc73.js.map",
-    "static/js/2.6c84697e.chunk.js": "/digital-capabilities-survey/static/js/2.6c84697e.chunk.js",
-    "static/js/2.6c84697e.chunk.js.map": "/digital-capabilities-survey/static/js/2.6c84697e.chunk.js.map",
+    "static/js/2.26073067.chunk.js": "/digital-capabilities-survey/static/js/2.26073067.chunk.js",
+    "static/js/2.26073067.chunk.js.map": "/digital-capabilities-survey/static/js/2.26073067.chunk.js.map",
     "static/js/3.558a100e.chunk.js": "/digital-capabilities-survey/static/js/3.558a100e.chunk.js",
     "static/js/3.558a100e.chunk.js.map": "/digital-capabilities-survey/static/js/3.558a100e.chunk.js.map",
     "index.html": "/digital-capabilities-survey/index.html",
     "static/css/main.7c5767e7.chunk.css.map": "/digital-capabilities-survey/static/css/main.7c5767e7.chunk.css.map",
-    "static/js/2.6c84697e.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.6c84697e.chunk.js.LICENSE.txt"
+    "static/js/2.26073067.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.26073067.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.48f5fc73.js",
-    "static/js/2.6c84697e.chunk.js",
+    "static/js/2.26073067.chunk.js",
     "static/css/main.7c5767e7.chunk.css",
-    "static/js/main.0d9e4e9a.chunk.js"
+    "static/js/main.54f6eaea.chunk.js"
   ]
 }
