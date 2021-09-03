@@ -1,0 +1,28 @@
+.form-wrapper
+{
+    width: 75%;
+    margin: auto;
+}
+
+.survey-section
+{
+    text-align: left;
+}
+
+.entry-heading
+{
+    text-align: left;
+}
+
+.question
+{
+    text-align: left;
+    width: 80%;
+    display: inline-block;
+}
+
+.answer
+{
+    text-align: left;
+    display: inline-block;
+}
