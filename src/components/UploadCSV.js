@@ -313,7 +313,7 @@ const UploadCSV = () => {
 
       <p>Check console after calculating (should be array element 2 for Ruth's new csv file)</p>
 
-      <button onClick={generateValues}>Calculate values</button>
+      <button onClick={generateValues}>Compare to Previous</button>
 
     </div>
   );

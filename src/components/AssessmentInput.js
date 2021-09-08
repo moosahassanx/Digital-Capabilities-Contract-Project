@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import '../css/AssessmentInput.css'
 
-const AssessmentInput = () => {
+const AssessmentInput = (props) => {
 
     // page controlling
     const [page0, setPage0] = useState(true);
@@ -20,7 +20,7 @@ const AssessmentInput = () => {
     const [section4, setSection4] = useState(0);
     const [section5, setSection5] = useState(0);
     const [section6, setSection6] = useState(0);
-    const [sectionsInArray, setSectionsInArray] = useState([]);
+    // const [sectionsInArray, setSectionsInArray] = useState([]);
 
     // to control use-effect function at proper timing
     const [initiate, setInitiate] = useState(false);
@@ -734,43 +734,17 @@ const AssessmentInput = () => {
         arrayInput.push(section4);
         arrayInput.push(section5);
         arrayInput.push(section6);
-        setSectionsInArray(arrayInput);
+        // setSectionsInArray(arrayInput);
 
-        if(totalScore <= 71)
-        {
-            alert("you are a beginner");
-            return;
-        }
+        props.changeSectionsInArray(arrayInput);
 
-        if(totalScore <= 107)
-        {
-            alert("you are an elementary user");
-            return;
-        }
-
-        if(totalScore <= 143)
-        {
-            alert("you are an intermediate user");
-            return;
-        }
-
-        if(totalScore <= 179)
-        {
-            alert("you are an upper intermediate user");
-            return;
-        }
-
-        if(totalScore <= 215)
-        {
-            alert("you are an advanced user");
-            return;
-        }
-
-        if(totalScore <= 252)
-        {
-            alert("you are an proficient user");
-            return;
-        }
+        setPage0(false);
+        setPage1(false);
+        setPage2(false);
+        setPage3(false);
+        setPage4(false);
+        setPage5(false);
+        setPage6(false);
     }
 
     return (
@@ -1371,12 +1345,13 @@ const AssessmentInput = () => {
 
                         <p>show users responses here</p>
 
-                        <button onClick={calculate}>calculate</button>
                         <button onClick={prevPage}>prevPage</button>
-                        <button onClick={calculate}>calculate</button>
+                        <button type="button" onClick={calculate}>calculate</button>
                     </form>
                 ) : (
-                    null
+                    <div>
+                        <h4>Ctrl + F5 to restart capability tool (temporary solution but will implement redo button soon)</h4>
+                    </div>
                 )
             }
 

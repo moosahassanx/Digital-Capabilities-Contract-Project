@@ -54,6 +54,48 @@ const RadarChart = () => {
         chart()
     }, [])
 
+    function calculate()
+    {
+        var totalScore = 0;
+
+        
+        if(totalScore <= 71)
+        {
+            alert("you are a beginner");
+            return;
+        }
+
+        if(totalScore <= 107)
+        {
+            alert("you are an elementary user");
+            return;
+        }
+
+        if(totalScore <= 143)
+        {
+            alert("you are an intermediate user");
+            return;
+        }
+
+        if(totalScore <= 179)
+        {
+            alert("you are an upper intermediate user");
+            return;
+        }
+
+        if(totalScore <= 215)
+        {
+            alert("you are an advanced user");
+            return;
+        }
+
+        if(totalScore <= 252)
+        {
+            alert("you are an proficient user");
+            return;
+        }
+    }
+
     return (
         <div>
             <Radar data = {chartData} options={{
