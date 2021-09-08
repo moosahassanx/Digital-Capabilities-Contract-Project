@@ -20,6 +20,7 @@ const AssessmentInput = () => {
     const [section4, setSection4] = useState(0);
     const [section5, setSection5] = useState(0);
     const [section6, setSection6] = useState(0);
+    const [sectionsInArray, setSectionsInArray] = useState([]);
 
     // to control use-effect function at proper timing
     const [initiate, setInitiate] = useState(false);
@@ -120,7 +121,6 @@ const AssessmentInput = () => {
               }
         });
         setSection1(sectionTotal);
-        alert('Section 1: ' + sectionTotal);        // update this
 
         // page navigation
         setPage0(false);
@@ -142,6 +142,92 @@ const AssessmentInput = () => {
         var radio5 = document.getElementsByName('Q6-5');
         var radio6 = document.getElementsByName('Q6-6');
 
+        for (var i = 0, length = radio1.length; i < length; i++)        // TODO: find a way to engineer this code
+        {
+            if (radio1[i].checked)
+            {
+              responses.push(radio1[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio2.length; i < length; i++)
+        {
+            if (radio2[i].checked)
+            {
+              responses.push(radio2[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio3.length; i < length; i++)
+        {
+            if (radio3[i].checked)
+            {
+              responses.push(radio3[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio4.length; i < length; i++)
+        {
+            if (radio4[i].checked)
+            {
+              responses.push(radio4[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio5.length; i < length; i++)
+        {
+            if (radio5[i].checked)
+            {
+              responses.push(radio5[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio6.length; i < length; i++)
+        {
+            if (radio6[i].checked)
+            {
+              responses.push(radio6[i].value);
+              break;
+            }
+        }
+
+        // string to value classification
+        var sectionTotal = 0;
+        responses.forEach(element => {
+            switch(element) {
+                case 'Very poor':
+                    sectionTotal = sectionTotal + 1;
+                    break;
+                case 'Poor':
+                    sectionTotal = sectionTotal + 2;
+                    break;
+                case 'Needs work':
+                    sectionTotal = sectionTotal + 3;
+                    break;
+                case 'Satisfactory':
+                    sectionTotal = sectionTotal + 4;
+                    break;
+                case 'Good':
+                    sectionTotal = sectionTotal + 5;
+                    break;
+                case 'Very good':
+                    sectionTotal = sectionTotal + 6;
+                    break;
+                case 'Excellent':
+                    sectionTotal = sectionTotal + 7;
+                    break;
+                default:
+                  //
+              }
+        });
+        setSection2(sectionTotal);
+
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(true);
@@ -152,6 +238,101 @@ const AssessmentInput = () => {
     }
     function nextPageFrom2()
     {
+        let responses = [];
+        // getting radio values for every input
+        var radio1 = document.getElementsByName('Q7-1');
+        var radio2 = document.getElementsByName('Q7-2');
+        var radio3 = document.getElementsByName('Q7-3');
+        var radio4 = document.getElementsByName('Q7-4');
+        var radio5 = document.getElementsByName('Q7-5');
+        var radio6 = document.getElementsByName('Q7-6');
+
+        for (var i = 0, length = radio1.length; i < length; i++)        // TODO: find a way to engineer this code
+        {
+            if (radio1[i].checked)
+            {
+              responses.push(radio1[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio2.length; i < length; i++)
+        {
+            if (radio2[i].checked)
+            {
+              responses.push(radio2[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio3.length; i < length; i++)
+        {
+            if (radio3[i].checked)
+            {
+              responses.push(radio3[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio4.length; i < length; i++)
+        {
+            if (radio4[i].checked)
+            {
+              responses.push(radio4[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio5.length; i < length; i++)
+        {
+            if (radio5[i].checked)
+            {
+              responses.push(radio5[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio6.length; i < length; i++)
+        {
+            if (radio6[i].checked)
+            {
+              responses.push(radio6[i].value);
+              break;
+            }
+        }
+
+        // string to value classification
+        var sectionTotal = 0;
+        responses.forEach(element => {
+            switch(element) {
+                case 'Very poor':
+                    sectionTotal = sectionTotal + 1;
+                    break;
+                case 'Poor':
+                    sectionTotal = sectionTotal + 2;
+                    break;
+                case 'Needs work':
+                    sectionTotal = sectionTotal + 3;
+                    break;
+                case 'Satisfactory':
+                    sectionTotal = sectionTotal + 4;
+                    break;
+                case 'Good':
+                    sectionTotal = sectionTotal + 5;
+                    break;
+                case 'Very good':
+                    sectionTotal = sectionTotal + 6;
+                    break;
+                case 'Excellent':
+                    sectionTotal = sectionTotal + 7;
+                    break;
+                default:
+                  //
+              }
+        });
+        setSection3(sectionTotal);
+
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -162,6 +343,101 @@ const AssessmentInput = () => {
     }
     function nextPageFrom3()
     {
+        let responses = [];
+        // getting radio values for every input
+        var radio1 = document.getElementsByName('Q8-1');
+        var radio2 = document.getElementsByName('Q8-2');
+        var radio3 = document.getElementsByName('Q8-3');
+        var radio4 = document.getElementsByName('Q8-4');
+        var radio5 = document.getElementsByName('Q8-5');
+        var radio6 = document.getElementsByName('Q8-6');
+
+        for (var i = 0, length = radio1.length; i < length; i++)        // TODO: find a way to engineer this code
+        {
+            if (radio1[i].checked)
+            {
+              responses.push(radio1[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio2.length; i < length; i++)
+        {
+            if (radio2[i].checked)
+            {
+              responses.push(radio2[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio3.length; i < length; i++)
+        {
+            if (radio3[i].checked)
+            {
+              responses.push(radio3[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio4.length; i < length; i++)
+        {
+            if (radio4[i].checked)
+            {
+              responses.push(radio4[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio5.length; i < length; i++)
+        {
+            if (radio5[i].checked)
+            {
+              responses.push(radio5[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio6.length; i < length; i++)
+        {
+            if (radio6[i].checked)
+            {
+              responses.push(radio6[i].value);
+              break;
+            }
+        }
+
+        // string to value classification
+        var sectionTotal = 0;
+        responses.forEach(element => {
+            switch(element) {
+                case 'Very poor':
+                    sectionTotal = sectionTotal + 1;
+                    break;
+                case 'Poor':
+                    sectionTotal = sectionTotal + 2;
+                    break;
+                case 'Needs work':
+                    sectionTotal = sectionTotal + 3;
+                    break;
+                case 'Satisfactory':
+                    sectionTotal = sectionTotal + 4;
+                    break;
+                case 'Good':
+                    sectionTotal = sectionTotal + 5;
+                    break;
+                case 'Very good':
+                    sectionTotal = sectionTotal + 6;
+                    break;
+                case 'Excellent':
+                    sectionTotal = sectionTotal + 7;
+                    break;
+                default:
+                  //
+              }
+        });
+        setSection4(sectionTotal);
+
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -172,6 +448,101 @@ const AssessmentInput = () => {
     }
     function nextPageFrom4()
     {
+        let responses = [];
+        // getting radio values for every input
+        var radio1 = document.getElementsByName('Q9-1');
+        var radio2 = document.getElementsByName('Q9-2');
+        var radio3 = document.getElementsByName('Q9-3');
+        var radio4 = document.getElementsByName('Q9-4');
+        var radio5 = document.getElementsByName('Q9-5');
+        var radio6 = document.getElementsByName('Q9-6');
+
+        for (var i = 0, length = radio1.length; i < length; i++)        // TODO: find a way to engineer this code
+        {
+            if (radio1[i].checked)
+            {
+              responses.push(radio1[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio2.length; i < length; i++)
+        {
+            if (radio2[i].checked)
+            {
+              responses.push(radio2[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio3.length; i < length; i++)
+        {
+            if (radio3[i].checked)
+            {
+              responses.push(radio3[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio4.length; i < length; i++)
+        {
+            if (radio4[i].checked)
+            {
+              responses.push(radio4[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio5.length; i < length; i++)
+        {
+            if (radio5[i].checked)
+            {
+              responses.push(radio5[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio6.length; i < length; i++)
+        {
+            if (radio6[i].checked)
+            {
+              responses.push(radio6[i].value);
+              break;
+            }
+        }
+
+        // string to value classification
+        var sectionTotal = 0;
+        responses.forEach(element => {
+            switch(element) {
+                case 'Very poor':
+                    sectionTotal = sectionTotal + 1;
+                    break;
+                case 'Poor':
+                    sectionTotal = sectionTotal + 2;
+                    break;
+                case 'Needs work':
+                    sectionTotal = sectionTotal + 3;
+                    break;
+                case 'Satisfactory':
+                    sectionTotal = sectionTotal + 4;
+                    break;
+                case 'Good':
+                    sectionTotal = sectionTotal + 5;
+                    break;
+                case 'Very good':
+                    sectionTotal = sectionTotal + 6;
+                    break;
+                case 'Excellent':
+                    sectionTotal = sectionTotal + 7;
+                    break;
+                default:
+                  //
+              }
+        });
+        setSection5(sectionTotal);
+
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -182,6 +553,101 @@ const AssessmentInput = () => {
     }
     function nextPageFrom5()
     {
+        let responses = [];
+        // getting radio values for every input
+        var radio1 = document.getElementsByName('Q10-1');
+        var radio2 = document.getElementsByName('Q10-2');
+        var radio3 = document.getElementsByName('Q10-3');
+        var radio4 = document.getElementsByName('Q10-4');
+        var radio5 = document.getElementsByName('Q10-5');
+        var radio6 = document.getElementsByName('Q10-6');
+
+        for (var i = 0, length = radio1.length; i < length; i++)        // TODO: find a way to engineer this code
+        {
+            if (radio1[i].checked)
+            {
+              responses.push(radio1[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio2.length; i < length; i++)
+        {
+            if (radio2[i].checked)
+            {
+              responses.push(radio2[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio3.length; i < length; i++)
+        {
+            if (radio3[i].checked)
+            {
+              responses.push(radio3[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio4.length; i < length; i++)
+        {
+            if (radio4[i].checked)
+            {
+              responses.push(radio4[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio5.length; i < length; i++)
+        {
+            if (radio5[i].checked)
+            {
+              responses.push(radio5[i].value);
+              break;
+            }
+        }
+
+        for (var i = 0, length = radio6.length; i < length; i++)
+        {
+            if (radio6[i].checked)
+            {
+              responses.push(radio6[i].value);
+              break;
+            }
+        }
+
+        // string to value classification
+        var sectionTotal = 0;
+        responses.forEach(element => {
+            switch(element) {
+                case 'Very poor':
+                    sectionTotal = sectionTotal + 1;
+                    break;
+                case 'Poor':
+                    sectionTotal = sectionTotal + 2;
+                    break;
+                case 'Needs work':
+                    sectionTotal = sectionTotal + 3;
+                    break;
+                case 'Satisfactory':
+                    sectionTotal = sectionTotal + 4;
+                    break;
+                case 'Good':
+                    sectionTotal = sectionTotal + 5;
+                    break;
+                case 'Very good':
+                    sectionTotal = sectionTotal + 6;
+                    break;
+                case 'Excellent':
+                    sectionTotal = sectionTotal + 7;
+                    break;
+                default:
+                  //
+              }
+        });
+        setSection6(sectionTotal);
+        
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -260,6 +726,15 @@ const AssessmentInput = () => {
     {
         // algorithm for calculating user type
         var totalScore = section1 + section2 + section3 + section4 + section5 + section6;
+
+        let arrayInput = [];
+        arrayInput.push(section1);
+        arrayInput.push(section2);
+        arrayInput.push(section3);
+        arrayInput.push(section4);
+        arrayInput.push(section5);
+        arrayInput.push(section6);
+        setSectionsInArray(arrayInput);
 
         if(totalScore <= 71)
         {
@@ -896,6 +1371,7 @@ const AssessmentInput = () => {
 
                         <p>show users responses here</p>
 
+                        <button onClick={calculate}>calculate</button>
                         <button onClick={prevPage}>prevPage</button>
                         <button onClick={calculate}>calculate</button>
                     </form>

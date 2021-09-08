@@ -4,11 +4,75 @@ import AssessmentInput from './components/AssessmentInput';
 import Chart from './components/Chart';
 import React, { Component } from 'react';
 import UploadCSV from './components/UploadCSV';
+import RadarChart from './components/RadarChart';
+
+const Main = () => {
+
+
+	return(
+		<div className="App">
+        <div className='navbar'>
+          <ul>
+            <li><a class="active" href="#home">Digital Capability Tool</a></li>
+            <li><a href="#news">Code</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#about">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <h1 class='firstHeader'>Digital Capabilities Survey</h1>
+        <img className='uon-image' src={uonImage} alt="temporary-placeholder" />
+  
+        <hr></hr>
+        <AssessmentInput/>
+        <hr></hr>
+
+        <div className='chart-wrapper'>
+          <h2>Results</h2>
+          <h4>You are a <span className='user-type'>[user_type]</span> user.</h4>
+          {/* <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/> */}
+        </div>
+
+        <hr></hr>
+
+        <div>
+			<h2>Compare current results to previous results</h2>
+			<h3>Upload csv file</h3>
+			<UploadCSV />
+        </div>
+
+        <hr></hr>
+
+        <div className='chart-wrapper'>
+			<h2>RadarChart as a Hook component</h2>
+			<h4>You are a <span className='user-type'>[user_type]</span> user.</h4>
+          	<RadarChart />
+        </div>
+      </div>
+	)
+};
+
+function App() {
+	return <Main />;
+}
+
+export default App;
+
+/*
+import './App.css';
+import uonImage from './img/uon-logo.png';
+import AssessmentInput from './components/AssessmentInput';
+import Chart from './components/Chart';
+import React, { Component } from 'react';
+import UploadCSV from './components/UploadCSV';
+import RadarChart from './components/RadarChart';
 
 class App extends Component {
 
   constructor(){
     super();
+	
     this.state = {
       // current data - to be used when the user completes the survey
       chartData:{},
@@ -90,7 +154,7 @@ class App extends Component {
         <img className='uon-image' src={uonImage} alt="temporary-placeholder" />
   
         <hr></hr>
-        <AssessmentInput />
+        <AssessmentInput parentCallback={this.callback} />
         <hr></hr>
 
         <div className='chart-wrapper'>
@@ -106,6 +170,12 @@ class App extends Component {
           <h3>Upload csv file</h3>
           <UploadCSV />
         </div>
+
+        <hr></hr>
+
+        <div>
+          <RadarChart />
+        </div>
       </div>
     );
   }
@@ -113,3 +183,4 @@ class App extends Component {
 }
 
 export default App;
+*/
