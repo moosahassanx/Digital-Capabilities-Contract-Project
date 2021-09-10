@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Radar } from "react-chartjs-2";
 
-const RadarChart = () => {
+const RadarChart = (props) => {
+
+    const [testInput, setTestInput] = useState("");
     const [chartData, setChartData] = useState({});
 
     const chart = () => {
@@ -51,6 +53,7 @@ const RadarChart = () => {
     }
 
     useEffect(() => {
+        // calculate()
         chart()
     }, [])
 
@@ -58,6 +61,8 @@ const RadarChart = () => {
     {
         var totalScore = 0;
 
+        console.log(testInput);
+        // console.log(props.myObj.q1);
         
         if(totalScore <= 71)
         {

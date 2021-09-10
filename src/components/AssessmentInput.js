@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 import '../css/AssessmentInput.css'
+import { Radar } from "react-chartjs-2";
 
 const AssessmentInput = (props) => {
 
@@ -12,6 +13,7 @@ const AssessmentInput = (props) => {
     const [page4, setPage4] = useState(false);
     const [page5, setPage5] = useState(false);
     const [page6, setPage6] = useState(false);
+    const [page7, setPage7] = useState(false);
     
     // data values for each section
     const [section1, setSection1] = useState(0);
@@ -20,10 +22,95 @@ const AssessmentInput = (props) => {
     const [section4, setSection4] = useState(0);
     const [section5, setSection5] = useState(0);
     const [section6, setSection6] = useState(0);
-    // const [sectionsInArray, setSectionsInArray] = useState([]);
+    const [sectionsInArray, setSectionsInArray] = useState([]);
+    const [userType, setUserType] = useState("user_type");
 
     // to control use-effect function at proper timing
     const [initiate, setInitiate] = useState(false);
+
+    // chartData
+    const [chartData, setChartData] = useState({});
+
+    const chart = () => {
+        setChartData({
+            labels: [
+                'Proficiency and Productivity',
+                'Digital Learning and Development',
+                'Digital Creation, Problem Solving and Innocation',
+                'Digital Communication, Collaboration and Participation',
+                'Information Literacy, Data Literacy and Media Literacy',
+                'Digital Identity and Wellbeing'
+            ],
+            datasets: [
+                // dataset 1
+                {
+                    label:'Current Score',
+                    data:[
+                        sectionsInArray[0],
+                        sectionsInArray[1],
+                        sectionsInArray[2],
+                        sectionsInArray[3],
+                        sectionsInArray[4],
+                        sectionsInArray[5]
+                    ],
+                    backgroundColor: 'rgba(00, 255, 00, 0.1)',
+                    borderColor: '#00FF00',
+                    borderWidth: 2
+                },
+
+                // // dataset 2
+                // {
+                //     label:'Previous Score',
+                //     data:[
+                //       42,
+                //       35,
+                //       22,
+                //       31,
+                //       15,
+                //       35
+                //     ],
+                //     backgroundColor: 'rgba(0, 255, 255, 0.1)',
+                //     borderColor: '#00FFFF',
+                //     borderWidth: 2
+                // }
+            ]
+        })
+
+        var totalScore = 0;
+
+		sectionsInArray.forEach(element => {
+			totalScore = totalScore + element;
+		});
+
+		if(totalScore < 72)
+		{
+			setUserType("Beginner");
+		}
+		else if(totalScore < 108)
+		{
+			setUserType("Elementary");
+		}
+		else if(totalScore < 144)
+		{
+			setUserType("Intermediate");
+		}
+		else if(totalScore < 180)
+		{
+			setUserType("Upper-Intermmediate");
+		}
+		else if(totalScore < 216)
+		{
+			setUserType("Advanced");
+		}
+		else
+		{
+			setUserType("Proficient");
+		}
+    }
+
+    useEffect(() => {
+        chart()
+    }, [sectionsInArray])
 
     // page navigation
     function nextPageFrom0()
@@ -130,6 +217,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(false);
         setPage6(false);
+        setPage6(false);
     }
     function nextPageFrom1()
     {
@@ -235,6 +323,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(false);
         setPage6(false);
+        setPage7(false);
     }
     function nextPageFrom2()
     {
@@ -340,6 +429,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(false);
         setPage6(false);
+        setPage7(false);
     }
     function nextPageFrom3()
     {
@@ -445,6 +535,7 @@ const AssessmentInput = (props) => {
         setPage4(true);
         setPage5(false);
         setPage6(false);
+        setPage7(false);
     }
     function nextPageFrom4()
     {
@@ -550,6 +641,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(true);
         setPage6(false);
+        setPage7(false);
     }
     function nextPageFrom5()
     {
@@ -655,6 +747,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(false);
         setPage6(true);
+        setPage7(false);
     }
     
 
@@ -734,7 +827,7 @@ const AssessmentInput = (props) => {
         arrayInput.push(section4);
         arrayInput.push(section5);
         arrayInput.push(section6);
-        // setSectionsInArray(arrayInput);
+        setSectionsInArray(arrayInput);
 
         props.changeSectionsInArray(arrayInput);
 
@@ -745,6 +838,7 @@ const AssessmentInput = (props) => {
         setPage4(false);
         setPage5(false);
         setPage6(false);
+        setPage7(true);
     }
 
     return (
@@ -1349,9 +1443,36 @@ const AssessmentInput = (props) => {
                         <button type="button" onClick={calculate}>calculate</button>
                     </form>
                 ) : (
+                    null
+                )
+            }
+
+            {
+                page7 === true ? (
                     <div>
                         <h4>Ctrl + F5 to restart capability tool (temporary solution but will implement redo button soon)</h4>
+
+                        <div className='chart-wrapper'>
+                            <h2>RadarChart display</h2>
+                            
+                            <h4>You are a <span className='user-type'>{userType}</span> user.</h4>
+
+                            <Radar data = {chartData} options={{
+                                type: "radar",
+                                responsive: true,
+                                title: {text: 'CHART TITLE', display: true},
+                                scale: {
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 45,
+                                        min: 0,
+                                    }
+                                }
+                            }} />
+                        </div>
                     </div>
+                ) : (
+                    null
                 )
             }
 
