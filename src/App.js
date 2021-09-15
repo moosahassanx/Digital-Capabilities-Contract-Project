@@ -2,8 +2,6 @@ import './App.css';
 import uonImage from './img/uon-logo.png';
 import AssessmentInput from './components/AssessmentInput';
 import React, {  useState, useEffect } from 'react';
-import UploadCSV from './components/UploadCSV';
-import RadarChart from './components/RadarChart';
 
 const Main = () => {
 
@@ -133,13 +131,13 @@ const Main = () => {
           <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
         </div> */}
 
-        <hr></hr>
+        {/* <hr></hr>
 
         <div>
 			<h2>Compare current results to previous results</h2>
 			<h3>Upload csv file</h3>
 			<UploadCSV />
-        </div>
+        </div> */}
 
 		{/*
         <hr></hr>

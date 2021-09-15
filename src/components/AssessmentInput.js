@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import '../css/AssessmentInput.css'
 import { Radar } from "react-chartjs-2";
+import UploadCSV from './UploadCSV';
 
 const AssessmentInput = (props) => {
 
@@ -25,11 +26,11 @@ const AssessmentInput = (props) => {
     const [sectionsInArray, setSectionsInArray] = useState([]);
     const [userType, setUserType] = useState("user_type");
 
-    // to control use-effect function at proper timing
-    const [initiate, setInitiate] = useState(false);
-
     // chartData
     const [chartData, setChartData] = useState({});
+
+    // uploaded chartData
+    const [uploadedChartData, setUploadedChartData] = useState({});
 
     const chart = () => {
         setChartData({
@@ -58,21 +59,8 @@ const AssessmentInput = (props) => {
                     borderWidth: 2
                 },
 
-                // // dataset 2
-                // {
-                //     label:'Previous Score',
-                //     data:[
-                //       42,
-                //       35,
-                //       22,
-                //       31,
-                //       15,
-                //       35
-                //     ],
-                //     backgroundColor: 'rgba(0, 255, 255, 0.1)',
-                //     borderColor: '#00FFFF',
-                //     borderWidth: 2
-                // }
+                // dataset 2
+                uploadedChartData
             ]
         })
 
@@ -110,7 +98,9 @@ const AssessmentInput = (props) => {
 
     useEffect(() => {
         chart()
-    }, [sectionsInArray])
+        console.log("==== uploadedChartData ====");
+        console.log(uploadedChartData);
+    }, [sectionsInArray, uploadedChartData])
 
     // page navigation
     function nextPageFrom0()
@@ -831,6 +821,24 @@ const AssessmentInput = (props) => {
 
         props.changeSectionsInArray(arrayInput);
 
+        // uploaded chartData
+        // setUploadedChartData({
+
+        //     label:'Previous Score',
+        //     data:[
+        //         2,
+        //         10,
+        //         20,
+        //         30,
+        //         40,
+        //         22
+        //     ],
+        //     backgroundColor: 'rgba(0, 255, 255, 0.1)',
+        //     borderColor: '#00FFFF',
+        //     borderWidth: 2
+        // });
+        
+
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -839,6 +847,29 @@ const AssessmentInput = (props) => {
         setPage5(false);
         setPage6(false);
         setPage7(true);
+    }
+
+    function restart()
+    {
+        let arrayInput = [];
+        setSectionsInArray(arrayInput);
+        props.changeSectionsInArray(arrayInput);
+
+        setSection1(0);
+        setSection2(0);
+        setSection3(0);
+        setSection4(0);
+        setSection5(0);
+        setSection6(0);
+
+        setPage0(true);
+        setPage1(false);
+        setPage2(false);
+        setPage3(false);
+        setPage4(false);
+        setPage5(false);
+        setPage6(false);
+        setPage7(false);
     }
 
     return (
@@ -1450,8 +1481,6 @@ const AssessmentInput = (props) => {
             {
                 page7 === true ? (
                     <div>
-                        <h4>Ctrl + F5 to restart capability tool (temporary solution but will implement redo button soon)</h4>
-
                         <div className='chart-wrapper'>
                             <h2>RadarChart display</h2>
                             
@@ -1469,6 +1498,12 @@ const AssessmentInput = (props) => {
                                     }
                                 }
                             }} />
+
+                            <UploadCSV 
+                                changeUploadChartData={uploadedChartData => setUploadedChartData(uploadedChartData)}
+                            />
+
+                            <button type="button" onClick={restart}>restart</button>
                         </div>
                     </div>
                 ) : (
