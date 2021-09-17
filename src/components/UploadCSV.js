@@ -307,14 +307,14 @@ const UploadCSV = (props) => {
     <div className="container">
 
       {/* csv file uploader and reader */}
-      <CSVReader
+      <CSVReader className='button'
         cssClass="react-csv-input"
         label="Upload CSV File: "
         onFileLoaded={handleForce}
         parserOptions={papaparseOptions}
       />
       
-      <button onClick={generateValues}>Compare Results</button>
+      <button className='button' onClick={generateValues}>Compare Results</button>
 
     </div>
   );

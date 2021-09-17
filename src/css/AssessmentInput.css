@@ -16,13 +16,50 @@
 
 .question
 {
-    text-align: left;
-    width: 80%;
-    display: inline-block;
+    text-align: right;
 }
 
 .answer
 {
     text-align: left;
     display: inline-block;
+}
+
+.csv-download
+{
+    border-style: solid;
+}
+
+.csv-upload
+{
+    border-style: solid;
+}
+
+.button
+{
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.2s;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.button:hover
+{
+    background-color: #3f3f3f;
+}
+
+.table-header
+{
+    width: 70px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
