@@ -26,6 +26,7 @@ const AssessmentInput = (props) => {
     const [section6, setSection6] = useState(0);
     const [sectionsInArray, setSectionsInArray] = useState([]);
     const [userType, setUserType] = useState("user_type");
+    const [prefix, setPrefix] = useState("an ");
 
     // raw input for each section
     const [rawSection1, setRawSection1] = useState([]);
@@ -49,7 +50,7 @@ const AssessmentInput = (props) => {
             labels: [
                 'Proficiency and Productivity',
                 'Digital Learning and Development',
-                'Digital Creation, Problem Solving and Innocation',
+                'Digital Creation, Problem Solving and Innovation',
                 'Digital Communication, Collaboration and Participation',
                 'Information Literacy, Data Literacy and Media Literacy',
                 'Digital Identity and Wellbeing'
@@ -84,26 +85,32 @@ const AssessmentInput = (props) => {
 
 		if(totalScore < 72)
 		{
+            setPrefix("a ");
 			setUserType("Beginner");
 		}
 		else if(totalScore < 108)
 		{
+            setPrefix("an ");
 			setUserType("Elementary");
 		}
 		else if(totalScore < 144)
 		{
+            setPrefix("an ");
 			setUserType("Intermediate");
 		}
 		else if(totalScore < 180)
 		{
+            setPrefix("an ");
 			setUserType("Upper-Intermmediate");
 		}
 		else if(totalScore < 216)
 		{
+            setPrefix("an ");
 			setUserType("Advanced");
 		}
 		else
 		{
+            setPrefix("a ");
 			setUserType("Proficient");
 		}
     }
@@ -917,8 +924,6 @@ const AssessmentInput = (props) => {
         arrayInput.push(section6);
         setSectionsInArray(arrayInput);
 
-        props.changeSectionsInArray(arrayInput);
-
         // object to press onto csv file
         setDownloadChartData({
             "Raters Group": "Respondents",
@@ -969,7 +974,7 @@ const AssessmentInput = (props) => {
             "Q10_I am able to_Protect my mental, physical, and emotional health when using digital technologies or tools": rawSection6[5]
         });
         
-
+        // page navigation
         setPage0(false);
         setPage1(false);
         setPage2(false);
@@ -982,10 +987,10 @@ const AssessmentInput = (props) => {
 
     function restart()
     {
+        // reset the locally stored input values from the user
         let arrayInput = [];
         setSectionsInArray(arrayInput);
         props.changeSectionsInArray(arrayInput);
-
         setSection1(0);
         setSection2(0);
         setSection3(0);
@@ -993,6 +998,7 @@ const AssessmentInput = (props) => {
         setSection5(0);
         setSection6(0);
 
+        // page navigation back to start
         setPage0(true);
         setPage1(false);
         setPage2(false);
@@ -1016,79 +1022,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Choose the appropriate digital tools or devices which assist me in reaching my learning goals</p></td>
-                                    <td><input type='radio' name='Q5-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use digital communication services, tools, and mobile apps (such as email and social networking applications) to communicate with others</p></td>
-                                    <td><input type='radio' name='Q5-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
-                                    <td><p className='question'>Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files.</p></td>
-                                    <td><input type='radio' name='Q5-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-3' value='Excellent'></input></td>
+                                    <td><p className='question'>Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files</p></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use internet browsers to find the required documents or data</p></td>
-                                    <td><input type='radio' name='Q5-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Perform troubleshooting (i.e., problem-solving) on my computer and digital devices</p></td>
-                                    <td><input type='radio' name='Q5-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Code applications or programs</p></td>
-                                    <td><input type='radio' name='Q5-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q5-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1113,79 +1119,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Use digital technologies (such as digital calendars/planners) to schedule or plan my study</p></td>
-                                    <td><input type='radio' name='Q6-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use digital technologies (such as Zoom, Microsoft Teams, BlackBoard or Padlet) to share information with instructors and other students.</p></td>
-                                    <td><input type='radio' name='Q6-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use digital tools to record learning events (e.g., lectures, tutorials, webinars) or information for later review.</p></td>
-                                    <td><input type='radio' name='Q6-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-3' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Sign onto and use the University’s supported platforms (such as BlackBoard, MyUON, the Library databases) to find the required document or data.</p></td>
-                                    <td><input type='radio' name='Q6-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Identify and participate in learning opportunities and courses available in a digital environment (such as YouTube, FutureLearn, and edX online courses).</p></td>
-                                    <td><input type='radio' name='Q6-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Analyse my digital strengths and weaknesses and reflect on my personal learning</p></td>
-                                    <td><input type='radio' name='Q6-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q6-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1210,79 +1216,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Use digital tools to edit an image and create a video</p></td>
-                                    <td><input type='radio' name='Q7-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Design and administer online surveys (such as SurveyMonkey, Qualtrics, and Google Docs) to gather qualitative and quantitative data.</p></td>
-                                    <td><input type='radio' name='Q7-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Analyse data using qualitative or quantitative software and digital tools</p></td>
-                                    <td><input type='radio' name='Q7-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-3' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Evaluate a problem by gathering appropriate information using digital tools</p></td>
-                                    <td><input type='radio' name='Q7-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Generate a new written and/or visual digital product by comparing and synthesising information that was found elsewhere</p></td>
-                                    <td><input type='radio' name='Q7-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Adapt and integrate a new technology into my learning environment</p></td>
-                                    <td><input type='radio' name='Q7-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q7-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1307,79 +1313,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Interact online with people from diverse communities and respect multiple perspectives</p></td>
-                                    <td><input type='radio' name='Q8-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Work remotely with colleagues/students/classmates using online collaborative tools</p></td>
-                                    <td><input type='radio' name='Q8-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use technology to ask a question or deliver a message in a socially acceptable way (i.e., netiquette rules)</p></td>
-                                    <td><input type='radio' name='Q8-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-3' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Contribute to comments in online discussions (online forum, blog or wiki) on social issues encountered in everyday life.</p></td>
-                                    <td><input type='radio' name='Q8-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Find relevant communities and groups online that suit my interests and needs</p></td>
-                                    <td><input type='radio' name='Q8-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Share content and information using social networks (such as Facebook) and collaborative platforms (such as OneDrive, Google Drive, Dropbox, etc.)</p></td>
-                                    <td><input type='radio' name='Q8-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q8-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1404,79 +1410,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Receive and respond to messages in a range of digital media (such as text, graphics, video, animation, audio and multimedia)</p></td>
-                                    <td><input type='radio' name='Q9-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use database applications to enter and retrieve information required for my studies</p></td>
-                                    <td><input type='radio' name='Q9-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Use the filtering and advanced search options in online databases (such as Google Scholar)</p></td>
-                                    <td><input type='radio' name='Q9-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-3' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Assess the truthfulness of information before sharing it on social media or with other students</p></td>
-                                    <td><input type='radio' name='Q9-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Follow the rules of copyright and give credit for others’ work through proper referencing</p></td>
-                                    <td><input type='radio' name='Q9-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Distinguish the differences between primary and secondary sources</p></td>
-                                    <td><input type='radio' name='Q9-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q9-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1501,79 +1507,79 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table>
+                        <table cellSpacing='0'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'>-------</p></td>
                                     <td><p className='table-header'>Very poor</p></td>
-                                    <td><p className='table-header'>Poor</p></td>
+                                    <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td><p className='table-header'>Needs work</p></td>
-                                    <td><p className='table-header'>Satisfactory</p></td>
+                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
                                     <td><p className='table-header'>Good</p></td>
-                                    <td><p className='table-header'>Very Good</p></td>
+                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
                                     <td><p className='table-header'>Excellent</p></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><p className='question'>Evaluate content of emails/messages/calls for spam and scam content</p></td>
-                                    <td><input type='radio' name='Q10-1' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-1' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Protect my personal data in online and offline environments</p></td>
-                                    <td><input type='radio' name='Q10-2' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-2' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Act positively against others’ damaging online behaviours (e.g., reporting or rejecting cyberbullying)</p></td>
-                                    <td><input type='radio' name='Q10-3' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-3' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Be considerate of others' privacy when taking video or pictures</p></td>
-                                    <td><input type='radio' name='Q10-4' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-4' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Adjust the privacy settings of my digital devices and tools</p></td>
-                                    <td><input type='radio' name='Q10-5' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-5' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                                 <tr>
                                     <td><p className='question'>Protect my mental, physical, and emotional health when using digital technologies or tools</p></td>
-                                    <td><input type='radio' name='Q10-6' value='Very poor'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Poor'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Needs work'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Satisfactory'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Good'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Very good'></input></td>
-                                    <td><input type='radio' name='Q10-6' value='Excellent'></input></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                    <td><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1612,9 +1618,9 @@ const AssessmentInput = (props) => {
                 page7 === true ? (
                     <div>
                         <div className='chart-wrapper'>
-                            <h2>RadarChart display</h2>
+                            <h2>Results</h2>
                             
-                            <h4>You are a <span className='user-type'>{userType}</span> user.</h4>
+                            <h4>You are {prefix}<span className='user-type'>{userType}</span> user.</h4>
 
                             <Radar data = {chartData} options={{
                                 type: "radar",
@@ -1698,7 +1704,7 @@ const AssessmentInput = (props) => {
                                 />
                             </div>
 
-                            <button className='button' type="button" onClick={restart}>restart survey</button>
+                            <button className='button' type="button" onClick={restart}>Restart Survey</button>
                         </div>
                     </div>
                 ) : (
