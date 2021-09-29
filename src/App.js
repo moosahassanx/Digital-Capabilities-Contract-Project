@@ -8,7 +8,7 @@ const Main = () => {
 		<div className="App">
         <div className='navbar'>
           <ul>
-            <li><a class="active" href="#home">Digital Capability Tool</a></li>
+            <li><a class="active" href="#home">Self Assessment Tool</a></li>
             <li><a href="#news">Code</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li>
@@ -21,7 +21,6 @@ const Main = () => {
   
         <hr></hr>
         <AssessmentInput/>
-
       </div>
 	)
 };

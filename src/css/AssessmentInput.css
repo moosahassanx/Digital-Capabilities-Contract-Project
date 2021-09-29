@@ -1,3 +1,8 @@
+/* @font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url(./fonts/MyFont.woff) format('woff');
+} */
+
 .form-wrapper
 {
     width: 75%;
@@ -59,14 +64,20 @@
 
 .table-header
 {
-    width: 70px;
+    width: 105px;
     padding-left: 2px;
     padding-right: 2px;
 }
 
 .shaded
 {
-    background-color: #ececec;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid black;
+}
+
+.border-bottom
+{
+    border-bottom: 1px solid black;
 }
 
 .line
@@ -83,13 +94,15 @@
 
 .radio__radio
 {
-    width: 1.25em;
-    height: 1.25em;
+    width: 1.6em;
+    height: 1.6em;
     border: 2px solid #a4afad;
     border-radius: 50%;
     box-sizing: border-box;
     padding: 2px;
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .radio__radio::after
@@ -107,4 +120,26 @@
 .radio__input:checked + .radio__radio::after
 {
     transform: scale(1);
+}
+
+.question-summary
+{
+    text-align: right;
+    font-weight: bold;
+}
+
+.answer-summary
+{
+    text-align: left;
+}
+
+.radar
+{
+    width: 50%;
+    height: auto;
+}
+
+.progress-bar
+{
+    width: 50%;
 }

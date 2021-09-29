@@ -12,3 +12,12 @@
 •    Need resolution responsiveness
 •    Add progress bar to the end of the quiz
 •    Add a bit of colour to the radar chart
+======================================================================================================
+
+•    get rid of the dashes in the blank header (you dont need it anymore)
+•    have the summary page done
+•    have the help text after receiving the results from the user
+•    have loading circle when calculating results (makes it look more responsive and interactive)
+	•    "Calculating user type..."
+	•    "Generating chart..."
+•    save the answers when clicking on prevPage
