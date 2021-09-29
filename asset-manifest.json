@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/digital-capabilities-survey/static/css/main.2116c003.chunk.css",
-    "main.js": "/digital-capabilities-survey/static/js/main.e2aff24e.chunk.js",
-    "main.js.map": "/digital-capabilities-survey/static/js/main.e2aff24e.chunk.js.map",
-    "runtime-main.js": "/digital-capabilities-survey/static/js/runtime-main.95649696.js",
-    "runtime-main.js.map": "/digital-capabilities-survey/static/js/runtime-main.95649696.js.map",
-    "static/js/2.57eab1eb.chunk.js": "/digital-capabilities-survey/static/js/2.57eab1eb.chunk.js",
-    "static/js/2.57eab1eb.chunk.js.map": "/digital-capabilities-survey/static/js/2.57eab1eb.chunk.js.map",
-    "static/js/3.77a82a1b.chunk.js": "/digital-capabilities-survey/static/js/3.77a82a1b.chunk.js",
-    "static/js/3.77a82a1b.chunk.js.map": "/digital-capabilities-survey/static/js/3.77a82a1b.chunk.js.map",
+    "main.css": "/digital-capabilities-survey/static/css/main.ac4e98b7.chunk.css",
+    "main.js": "/digital-capabilities-survey/static/js/main.32473301.chunk.js",
+    "main.js.map": "/digital-capabilities-survey/static/js/main.32473301.chunk.js.map",
+    "runtime-main.js": "/digital-capabilities-survey/static/js/runtime-main.f195025f.js",
+    "runtime-main.js.map": "/digital-capabilities-survey/static/js/runtime-main.f195025f.js.map",
+    "static/js/2.e9f0ed32.chunk.js": "/digital-capabilities-survey/static/js/2.e9f0ed32.chunk.js",
+    "static/js/2.e9f0ed32.chunk.js.map": "/digital-capabilities-survey/static/js/2.e9f0ed32.chunk.js.map",
+    "static/js/3.272b63d6.chunk.js": "/digital-capabilities-survey/static/js/3.272b63d6.chunk.js",
+    "static/js/3.272b63d6.chunk.js.map": "/digital-capabilities-survey/static/js/3.272b63d6.chunk.js.map",
     "index.html": "/digital-capabilities-survey/index.html",
-    "static/css/main.2116c003.chunk.css.map": "/digital-capabilities-survey/static/css/main.2116c003.chunk.css.map",
-    "static/js/2.57eab1eb.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.57eab1eb.chunk.js.LICENSE.txt"
+    "static/css/main.ac4e98b7.chunk.css.map": "/digital-capabilities-survey/static/css/main.ac4e98b7.chunk.css.map",
+    "static/js/2.e9f0ed32.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.e9f0ed32.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.95649696.js",
-    "static/js/2.57eab1eb.chunk.js",
-    "static/css/main.2116c003.chunk.css",
-    "static/js/main.e2aff24e.chunk.js"
+    "static/js/runtime-main.f195025f.js",
+    "static/js/2.e9f0ed32.chunk.js",
+    "static/css/main.ac4e98b7.chunk.css",
+    "static/js/main.32473301.chunk.js"
   ]
 }
