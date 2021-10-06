@@ -30,16 +30,6 @@
     display: inline-block;
 }
 
-.csv-download
-{
-    border-style: solid;
-}
-
-.csv-upload
-{
-    border-style: solid;
-}
-
 .button
 {
     background-color: #000000;
@@ -133,13 +123,34 @@
     text-align: left;
 }
 
+.progress-bar
+{
+    width: 90%;
+}
+
 .radar
 {
     width: 50%;
     height: auto;
+    border:1px solid black;
+    float: left;
+    overflow: hidden;
 }
 
-.progress-bar
+.results-information
 {
-    width: 50%;
+    border:1px solid black;
+    overflow: hidden;
+}
+
+.csv-download
+{
+    border:1px solid black;
+    width: 100%;
+    overflow: hidden;
+}
+
+.csv-upload
+{
+    border:1px solid black;
 }

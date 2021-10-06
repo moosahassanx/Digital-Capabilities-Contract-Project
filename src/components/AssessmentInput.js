@@ -5,7 +5,9 @@ import { Radar } from "react-chartjs-2";
 import UploadCSV from './UploadCSV';
 import { CSVDownloader } from 'react-papaparse';
 import { Spinner } from 'react-bootstrap';
-import ProgressingBar from './ProgressingBar';
+import { Progress } from 'react-sweet-progress';
+import "react-sweet-progress/lib/style.css";
+import UserDescription from './UserDescription';
 
 const AssessmentInput = (props) => {
 
@@ -1021,7 +1023,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={0} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={0} /> */}
+                            <Progress percent={0} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1122,7 +1125,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={14.286} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={14.286} /> */}
+                            <Progress percent={14.286} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1224,7 +1228,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={28.571} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={28.571} /> */}
+                            <Progress percent={28.571} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1326,7 +1331,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={42.857} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={42.857} /> */}
+                            <Progress percent={42.857} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1428,7 +1434,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={57.143} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={57.143} /> */}
+                            <Progress percent={57.143} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1530,7 +1537,8 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={71.429} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={71.429} /> */}
+                            <Progress percent={71.429} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1632,16 +1640,17 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-bar'>
-                            <ProgressingBar bgcolor={'#6a1b9a'} completed={85.714} />
+                            {/* <ProgressingBar bgcolor={'#6a1b9a'} completed={85.714} /> */}
+                            <Progress percent={85.714} />
                         </div>
 
                         <div className='entry-heading'>
                             <h3>Review your responses</h3>
                         </div>
 
-                        {/* Section 1 */}
                         <table>
                             <tbody>
+                                {/* Section 1 */}
                                 <tr>
                                     <td><p className='question-summary'>Choose the appropriate digital tools or devices which assist me in reaching my learning goals: </p></td>
                                     <td><p className='answer-summary'>{rawSection1[0]}</p></td>
@@ -1799,8 +1808,8 @@ const AssessmentInput = (props) => {
                             </tbody>
                         </table>
 
-                        <button className='button' type="button" onClick={prevPage}>prevPage</button>
-                        <button className='button' type="button" onClick={calculate}>calculate</button>
+                        <button className='button' type="button" onClick={prevPage}>Back</button>
+                        <button className='button' type="button" onClick={calculate}>Calculate Results</button>
                     </form>
                 ) : (
                     null
@@ -1829,8 +1838,9 @@ const AssessmentInput = (props) => {
                                     }
                                 }} />
                             </div>
-                            <div>
+                            <div className='results-information'>
                                 <p>testing user type component placeholder will be here</p>
+                                <UserDescription sections={sectionsInArray} />
                             </div>
                             
                             <div className='csv-download'>

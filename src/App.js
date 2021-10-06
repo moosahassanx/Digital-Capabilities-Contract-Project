@@ -9,10 +9,9 @@ const Main = () => {
         <div className='navbar'>
           <ul>
             <li><a class="active" href="#home">Self Assessment Tool</a></li>
-            <li><a href="#news">Code</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#about">Privacy Policy</a></li>
+            <li><a href="https://github.com/moosahassanx/digital-capabilities-survey/tree/main" target='blank'>GitHub Codebase</a></li>
+            <li><a href="https://www.newcastle.edu.au/current-students/support/it/it-service-desk#:~:text=By%20phone,17000%20(internal%20call)" target='_blank'>Contact</a></li>
+            <li><a href="https://www.newcastle.edu.au/our-uni" target='_blank'>About</a></li>
           </ul>
         </div>
 
