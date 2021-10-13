@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/digital-capabilities-survey/static/css/main.94cd2a5a.chunk.css",
-    "main.js": "/digital-capabilities-survey/static/js/main.82c2f9bb.chunk.js",
-    "main.js.map": "/digital-capabilities-survey/static/js/main.82c2f9bb.chunk.js.map",
-    "runtime-main.js": "/digital-capabilities-survey/static/js/runtime-main.87786ea7.js",
-    "runtime-main.js.map": "/digital-capabilities-survey/static/js/runtime-main.87786ea7.js.map",
-    "static/css/2.1601f761.chunk.css": "/digital-capabilities-survey/static/css/2.1601f761.chunk.css",
-    "static/js/2.2ef1c391.chunk.js": "/digital-capabilities-survey/static/js/2.2ef1c391.chunk.js",
-    "static/js/2.2ef1c391.chunk.js.map": "/digital-capabilities-survey/static/js/2.2ef1c391.chunk.js.map",
-    "static/js/3.896638e5.chunk.js": "/digital-capabilities-survey/static/js/3.896638e5.chunk.js",
-    "static/js/3.896638e5.chunk.js.map": "/digital-capabilities-survey/static/js/3.896638e5.chunk.js.map",
+    "main.css": "/digital-capabilities-survey/static/css/main.57b79d70.chunk.css",
+    "main.js": "/digital-capabilities-survey/static/js/main.9639747b.chunk.js",
+    "main.js.map": "/digital-capabilities-survey/static/js/main.9639747b.chunk.js.map",
+    "runtime-main.js": "/digital-capabilities-survey/static/js/runtime-main.17e09f52.js",
+    "runtime-main.js.map": "/digital-capabilities-survey/static/js/runtime-main.17e09f52.js.map",
+    "static/css/2.877f06de.chunk.css": "/digital-capabilities-survey/static/css/2.877f06de.chunk.css",
+    "static/js/2.0c48d6e9.chunk.js": "/digital-capabilities-survey/static/js/2.0c48d6e9.chunk.js",
+    "static/js/2.0c48d6e9.chunk.js.map": "/digital-capabilities-survey/static/js/2.0c48d6e9.chunk.js.map",
+    "static/js/3.454e253b.chunk.js": "/digital-capabilities-survey/static/js/3.454e253b.chunk.js",
+    "static/js/3.454e253b.chunk.js.map": "/digital-capabilities-survey/static/js/3.454e253b.chunk.js.map",
     "index.html": "/digital-capabilities-survey/index.html",
-    "static/css/2.1601f761.chunk.css.map": "/digital-capabilities-survey/static/css/2.1601f761.chunk.css.map",
-    "static/css/main.94cd2a5a.chunk.css.map": "/digital-capabilities-survey/static/css/main.94cd2a5a.chunk.css.map",
-    "static/js/2.2ef1c391.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.2ef1c391.chunk.js.LICENSE.txt"
+    "static/css/2.877f06de.chunk.css.map": "/digital-capabilities-survey/static/css/2.877f06de.chunk.css.map",
+    "static/css/main.57b79d70.chunk.css.map": "/digital-capabilities-survey/static/css/main.57b79d70.chunk.css.map",
+    "static/js/2.0c48d6e9.chunk.js.LICENSE.txt": "/digital-capabilities-survey/static/js/2.0c48d6e9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.87786ea7.js",
-    "static/css/2.1601f761.chunk.css",
-    "static/js/2.2ef1c391.chunk.js",
-    "static/css/main.94cd2a5a.chunk.css",
-    "static/js/main.82c2f9bb.chunk.js"
+    "static/js/runtime-main.17e09f52.js",
+    "static/css/2.877f06de.chunk.css",
+    "static/js/2.0c48d6e9.chunk.js",
+    "static/css/main.57b79d70.chunk.css",
+    "static/js/main.9639747b.chunk.js"
   ]
 }
