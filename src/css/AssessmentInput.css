@@ -62,7 +62,7 @@
 .shaded
 {
     background-color: #f4f4f4;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(224, 224, 224);
 }
 
 .border-bottom
@@ -130,27 +130,101 @@
 
 .radar
 {
-    width: 50%;
+    width: 90%;
     height: auto;
-    border:1px solid black;
-    float: left;
-    overflow: hidden;
-}
-
-.results-information
-{
-    border:1px solid black;
-    overflow: hidden;
+    margin: auto;
 }
 
 .csv-download
 {
     border:1px solid black;
-    width: 100%;
-    overflow: hidden;
 }
 
 .csv-upload
 {
     border:1px solid black;
+}
+
+/* all the 6 wheels */
+.parent-wheel
+{
+    width: 1000px;
+}
+
+.centralise-wheel
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wheel-1
+{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: auto;
+    width: 33%;
+    overflow: hidden;
+    display: inline-block;
+    background-color: #f4f4f4;
+}
+
+.wheel-2
+{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: auto;
+    width: 33%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.wheel-3
+{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: auto;
+    width: 33%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.dropdown-wrapper
+{
+    border-top: 1px solid black;
+}
+
+.indicator
+{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 40%;
+}
+
+.results-subheading
+{
+    text-align: left;
+}
+
+.results-table
+{
+    width: 100%;
+}
+
+.results-table-text
+{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.results-shaded-cell
+{
+    background-color: #f4f4f4;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }

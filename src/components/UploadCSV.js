@@ -14,7 +14,6 @@ const UploadCSV = (props) => {
 
   // this is the function which executes every time there is an update on the use state
   useEffect(() => {
-    console.log("DATA: " + data.data);
     props.changeUploadChartData(data);
   }, [data])
 
@@ -29,6 +28,13 @@ const UploadCSV = (props) => {
   function generateValues(props)
   {
     var userValues = results[1];          // get the second column of the csv array
+
+    // no csv file was uploaded (or corruption in file)
+    if(userValues === undefined)
+    {
+      alert("Please upload CSV File before comparing results.");
+      return;
+    }
     
     // array string values from the user, this will be converted into values using the use-effect function
     let inputStringsQ5 = [];

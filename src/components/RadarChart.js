@@ -11,7 +11,7 @@ const RadarChart = (props) => {
             labels: [
                 'Proficiency and Productivity',
                 'Digital Learning and Development',
-                'Digital Creation, Problem Solving and Innocation',
+                'Digital Creation, Problem Solving and Innovation',
                 'Digital Communication, Collaboration and Participation',
                 'Information Literacy, Data Literacy and Media Literacy',
                 'Digital Identity and Wellbeing'
