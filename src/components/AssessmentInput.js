@@ -9,6 +9,10 @@ import "react-sweet-progress/lib/style.css";
 import UserDescription from './UserDescription';
 import ProgressBar from 'react-customizable-progressbar'
 import Accordion from 'react-bootstrap/Accordion';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import "bootstrap/dist/css/bootstrap.css"
 
 const AssessmentInput = (props) => {
@@ -50,6 +54,17 @@ const AssessmentInput = (props) => {
 
     // downloaded chartData
     const [downloadChartData, setDownloadChartData] = useState({});
+
+    // popover code
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     const chart = () => {
         setChartData({
@@ -1751,7 +1766,7 @@ const AssessmentInput = (props) => {
                             </div>
 
                             {/* generate radar chart */}
-                            <div className='radar'>
+                            <div className='radar' id='radar'>
                                 <Radar data = {chartData} options={{
                                     type: "radar",
                                     responsive: true,
@@ -1892,19 +1907,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
                                 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
 
@@ -1929,18 +1956,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
                                             <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
                                             <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
                                             <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
 
@@ -1965,18 +2005,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
                             <br></br>
@@ -2003,19 +2056,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
+                                            <li><a href='https://www.linkedin.com/learning/microsoft-teams-essential-training-5/communicate-effectively-with-microsoft-teams?u=75842122' target='_blank'>MS Teams</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
 
@@ -2040,17 +2105,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
 
@@ -2075,16 +2154,31 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                <Accordion>
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header>Click to see resource links</Accordion.Header>
-                                        <Accordion.Body>
-                                            <ol>
-                                                <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            </ol>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                        Click to see resource links <KeyboardArrowDownIcon />
+                                    </Button>
+                                    <Popover
+                                        id={id}
+                                        open={open}
+                                        anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'center',
+                                        }}
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'center',
+                                        }}
+                                    >
+                                    <Typography sx={{ p: 2 }}>
+                                        <ol>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                        </ol>
+                                    </Typography>
+                                    </Popover>
                                 </div>
                             </div>
 

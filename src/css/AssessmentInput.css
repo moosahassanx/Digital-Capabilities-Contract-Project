@@ -1,7 +1,7 @@
-/* @font-face {
-    font-family: 'MyFont';
-    src: local('MyFont'), url(./fonts/MyFont.woff) format('woff');
-} */
+body
+{
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
 
 .form-wrapper
 {
@@ -191,6 +191,18 @@
 .dropdown-wrapper
 {
     border-top: 1px solid black;
+    width: auto;
+}
+
+.dropdown-element
+{
+    background-attachment: fixed;
+    background-color: #000000;
+}
+
+.dropdown-button
+{
+    width: 100%;
 }
 
 .indicator
