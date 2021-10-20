@@ -14,6 +14,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import "bootstrap/dist/css/bootstrap.css"
+import html2canvas from 'html2canvas';
+import { jsPDF } from "jspdf";
 
 const AssessmentInput = (props) => {
 
@@ -1139,6 +1141,29 @@ const AssessmentInput = (props) => {
         setPage7(false);
     }
 
+    // pdf exporting the document
+    function printDocument() {
+        // getting all the images in this page
+        const radarImage = document.getElementById('radar');
+        const wheel1Image = document.getElementById('wheel-one');
+        const wheel2Image = document.getElementById('wheel-two');
+        const wheel3Image = document.getElementById('wheel-three');
+        const wheel4Image = document.getElementById('wheel-four');
+        const wheel5Image = document.getElementById('wheel-five');
+        const wheel6Image = document.getElementById('wheel-six');
+
+        html2canvas(radarImage)
+            .then((canvas) => {
+            // converting radar div const to image
+            const imgData = canvas.toDataURL('image/png');
+
+            const pdf = new jsPDF();
+
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            pdf.save("digital-capabilities-results.pdf");
+        });
+    }
+
     return (
         <div className="input-form">
             {
@@ -1853,7 +1878,7 @@ const AssessmentInput = (props) => {
                                         </tr>
                                         <tr>
                                             <td><p className='results-table-text'>Save a PDF print-out of your results with hyperlinks to learning resources intact.</p></td>
-                                            <td><button className='button' type="button" >Download PDF</button></td>
+                                            <td><button className='button' type="button" onClick={printDocument} >Download PDF</button></td>
                                         </tr>
                                         <tr>
                                             <td className='results-shaded-cell'><p className='results-table-text'>Save a ZIP folder with both the CSV and PDF files inside.</p></td>
@@ -1886,7 +1911,7 @@ const AssessmentInput = (props) => {
                             {/* 6 wheels for each category */}
                             <h2>Capabilities Breakdown and Resource Links</h2>
                             
-                            <div className='wheel-1'>
+                            <div id='wheel-one' className='wheel-1'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[0]/42)*100}
@@ -1935,7 +1960,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div className='wheel-2'>
+                            <div id='wheel-two' className='wheel-2'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[1]/42)*100}
@@ -1984,7 +2009,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div className='wheel-1'>
+                            <div id='wheel-three' className='wheel-1'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[2]/42)*100}
@@ -2035,7 +2060,7 @@ const AssessmentInput = (props) => {
                             <br></br>
                             <br></br>
 
-                            <div className='wheel-2'>
+                            <div id='wheel-four' className='wheel-2'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[3]/42)*100}
@@ -2084,7 +2109,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div className='wheel-1'>
+                            <div id='wheel-five' className='wheel-1'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[4]/42)*100}
@@ -2133,7 +2158,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div className='wheel-3'>
+                            <div id='wheel-six' className='wheel-3'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[5]/42)*100}
