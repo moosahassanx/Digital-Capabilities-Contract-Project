@@ -1,6 +1,7 @@
 .wrapper
 {
     display: flex;
+    width: 90%;
 }
 
 .left
@@ -12,4 +13,8 @@
 .right
 {
     display: flex;
+}
+.progress-table
+{
+    width: 100%;
 }

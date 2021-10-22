@@ -10,6 +10,11 @@ import UserDescription from './UserDescription';
 import ProgressBar from 'react-customizable-progressbar'
 import Accordion from 'react-bootstrap/Accordion';
 import SurveyProgress from './SurveyProgress';
+import SurveyProgress2 from './SurveyProgress2';
+import SurveyProgress3 from './SurveyProgress3';
+import SurveyProgress4 from './SurveyProgress4';
+import SurveyProgress5 from './SurveyProgress5';
+import SurveyProgress6 from './SurveyProgress6';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -58,16 +63,71 @@ const AssessmentInput = (props) => {
     // downloaded chartData
     const [downloadChartData, setDownloadChartData] = useState({});
 
-    // popover code
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    // popover code for first wheel
+    const [anchorEl1, setAnchorEl1] = React.useState(null);
+    const handleClick1 = (event) => {
+        setAnchorEl1(event.currentTarget);
     };
-    const handleClose = () => {
-        setAnchorEl(null);
+    const handleClose1 = () => {
+        setAnchorEl1(null);
     };
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
+    const open1 = Boolean(anchorEl1);
+    const id1 = open1 ? 'simple-popover' : undefined;
+
+    // popover code for second wheel
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
+    const handleClick2 = (event) => {
+        setAnchorEl2(event.currentTarget);
+    };
+    const handleClose2 = () => {
+        setAnchorEl2(null);
+    };
+    const open2 = Boolean(anchorEl2);
+    const id2 = open2 ? 'simple-popover' : undefined;
+
+    // popover code for third wheel
+    const [anchorEl3, setAnchorEl3] = React.useState(null);
+    const handleClick3 = (event) => {
+        setAnchorEl3(event.currentTarget);
+    };
+    const handleClose3 = () => {
+        setAnchorEl3(null);
+    };
+    const open3 = Boolean(anchorEl3);
+    const id3 = open3 ? 'simple-popover' : undefined;
+
+    // popover code for fourth wheel
+    const [anchorEl4, setAnchorEl4] = React.useState(null);
+    const handleClick4 = (event) => {
+        setAnchorEl4(event.currentTarget);
+    };
+    const handleClose4 = () => {
+        setAnchorEl4(null);
+    };
+    const open4 = Boolean(anchorEl4);
+    const id4 = open4 ? 'simple-popover' : undefined;
+
+    // popover code for fifth wheel
+    const [anchorEl5, setAnchorEl5] = React.useState(null);
+    const handleClick5 = (event) => {
+        setAnchorEl5(event.currentTarget);
+    };
+    const handleClose5 = () => {
+        setAnchorEl5(null);
+    };
+    const open5 = Boolean(anchorEl5);
+    const id5 = open5 ? 'simple-popover' : undefined;
+
+    // popover code for sixth wheel
+    const [anchorEl6, setAnchorEl6] = React.useState(null);
+    const handleClick6 = (event) => {
+        setAnchorEl6(event.currentTarget);
+    };
+    const handleClose6 = () => {
+        setAnchorEl6(null);
+    };
+    const open6 = Boolean(anchorEl6);
+    const id6 = open6 ? 'simple-popover' : undefined;
 
     const chart = () => {
         setChartData({
@@ -1174,6 +1234,12 @@ const AssessmentInput = (props) => {
         );
     }
 
+    // scroll to the top of the page
+    function scrollUp()
+    {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className="input-form">
             {
@@ -1182,9 +1248,9 @@ const AssessmentInput = (props) => {
                         <div className='survey-section'>
                             <h2>Information Communication Technology (ICT) Proficiency and Productivity</h2>
                         </div>
-
+                        
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={0} />
+                            <SurveyProgress page={1} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1285,7 +1351,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={14.286} />
+                            <SurveyProgress2 page={2} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1387,7 +1453,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={28.571} />
+                            <SurveyProgress3 page={3} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1489,7 +1555,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={42.857} />
+                            <SurveyProgress4 page={4} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1591,7 +1657,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={57.143} />
+                            <SurveyProgress5 page={5} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1693,7 +1759,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress inputPercentage={71.429} />
+                            <SurveyProgress6 page={6} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1907,7 +1973,7 @@ const AssessmentInput = (props) => {
                                         <tr>
                                             <td className='results-shaded-cell'>
                                                 <p className='results-table-text'>Reupload your CSV file to compare results from this session and your previous session to track learning and progress.</p>
-                                                <UploadCSV
+                                                <UploadCSV onClick={scrollUp}
                                                     changeUploadChartData={uploadedChartData => setUploadedChartData(uploadedChartData)}
                                                 />
                                             </td>
@@ -1937,19 +2003,19 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Proficiency and Productivity </p>
+                                        <p>Proficiency and Productivity</p>
                                     </div>
                                 </ProgressBar>
                                 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id1} onClick={handleClick1}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id1}
+                                        open={open1}
+                                        anchorEl={anchorEl1}
+                                        onClose={handleClose1}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -1961,9 +2027,9 @@ const AssessmentInput = (props) => {
                                     >
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href={'//www.google.com'} target='_blank'>wheel1-one</a></li>
+                                            <li><a href={'//www.yahoo.com'} target='_blank'>wheel1-two</a></li>
+                                            <li><a href={'//www.bing.com'} target='_blank'>wheel1-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>
@@ -1991,14 +2057,14 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id2} onClick={handleClick2}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id2}
+                                        open={open2}
+                                        anchorEl={anchorEl2}
+                                        onClose={handleClose2}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -2010,9 +2076,9 @@ const AssessmentInput = (props) => {
                                     >
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href={'//www.facebook.com'} target='_blank'>wheel2-one</a></li>
+                                            <li><a href={'//www.youtube.com'} target='_blank'>wheel2-two</a></li>
+                                            <li><a href={'//www.github.com'} target='_blank'>wheel2-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>
@@ -2040,14 +2106,14 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id3} onClick={handleClick3}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id3}
+                                        open={open3}
+                                        anchorEl={anchorEl3}
+                                        onClose={handleClose3}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -2059,9 +2125,9 @@ const AssessmentInput = (props) => {
                                     >
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel3-one</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel3-two</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel3-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>
@@ -2091,14 +2157,14 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id4} onClick={handleClick4}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id4}
+                                        open={open4}
+                                        anchorEl={anchorEl4}
+                                        onClose={handleClose4}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -2111,8 +2177,8 @@ const AssessmentInput = (props) => {
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
                                             <li><a href='https://www.linkedin.com/learning/microsoft-teams-essential-training-5/communicate-effectively-with-microsoft-teams?u=75842122' target='_blank'>MS Teams</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel4-two</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel4-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>
@@ -2140,14 +2206,14 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id5} onClick={handleClick5}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id5}
+                                        open={open5}
+                                        anchorEl={anchorEl5}
+                                        onClose={handleClose5}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -2159,9 +2225,9 @@ const AssessmentInput = (props) => {
                                     >
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel5-one</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel5-two</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel5-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>
@@ -2189,14 +2255,14 @@ const AssessmentInput = (props) => {
                                 </ProgressBar>
 
                                 <div className='dropdown-wrapper'>
-                                    <Button variant="text" className='dropdown-button' aria-describedby={id} onClick={handleClick}>
+                                    <Button variant="text" className='dropdown-button' aria-describedby={id6} onClick={handleClick6}>
                                         Click to see resource links <KeyboardArrowDownIcon />
                                     </Button>
                                     <Popover
-                                        id={id}
-                                        open={open}
-                                        anchorEl={anchorEl}
-                                        onClose={handleClose}
+                                        id={id6}
+                                        open={open6}
+                                        anchorEl={anchorEl6}
+                                        onClose={handleClose6}
                                         anchorOrigin={{
                                             vertical: 'bottom',
                                             horizontal: 'center',
@@ -2208,9 +2274,9 @@ const AssessmentInput = (props) => {
                                     >
                                     <Typography sx={{ p: 2 }}>
                                         <ol>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
-                                            <li><a href='www.google.com.au' target='_blank'>Resource name</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel6-one</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel6-two</a></li>
+                                            <li><a href='www.google.com.au' target='_blank'>wheel6-three</a></li>
                                         </ol>
                                     </Typography>
                                     </Popover>

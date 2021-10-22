@@ -22,10 +22,10 @@ const SurveyProgress = (props) => {
                     <tr>
                         {renderFullBars}
                         <td><ProgressBar animated now={100} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
+                        <td><ProgressBar animated now={100} /></td>
+                        <td><ProgressBar animated now={100} /></td>
+                        <td><ProgressBar animated now={100} /></td>
+                        <td><ProgressBar animated now={100} /></td>
                         <td><ProgressBar animated now={0} /></td>
                     </tr>
                 </thead>
