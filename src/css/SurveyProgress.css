@@ -1,0 +1,15 @@
+.wrapper
+{
+    display: flex;
+}
+
+.left
+{
+    flex: 0 0 90%;
+    padding-right: 5px;
+}
+
+.right
+{
+    display: flex;
+}

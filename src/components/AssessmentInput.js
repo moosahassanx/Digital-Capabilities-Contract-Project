@@ -9,6 +9,7 @@ import "react-sweet-progress/lib/style.css";
 import UserDescription from './UserDescription';
 import ProgressBar from 'react-customizable-progressbar'
 import Accordion from 'react-bootstrap/Accordion';
+import SurveyProgress from './SurveyProgress';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -1152,16 +1153,25 @@ const AssessmentInput = (props) => {
         const wheel5Image = document.getElementById('wheel-five');
         const wheel6Image = document.getElementById('wheel-six');
 
-        html2canvas(radarImage)
+        const entireResults = document.getElementById('results-wrapper');
+
+        html2canvas(entireResults)
             .then((canvas) => {
-            // converting radar div const to image
-            const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
 
-            const pdf = new jsPDF();
+                // converting radar div const to image
+                const imgData = canvas.toDataURL('image/png');
 
-            pdf.addImage(imgData, 'JPEG', 0, 0);
-            pdf.save("digital-capabilities-results.pdf");
-        });
+                // const imgProps= pdf.getImageProperties(imgData);
+                // const pdfWidth = pdf.internal.pageSize.getWidth();
+
+                // var width = pdf.internal.pageSize.getWidth();
+                // var height = (imgProps.height * pdfWidth) / imgProps.width;
+
+                // pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, height);
+                // pdf.save("digital-capabilities-results.pdf");
+            }
+        );
     }
 
     return (
@@ -1173,8 +1183,8 @@ const AssessmentInput = (props) => {
                             <h2>Information Communication Technology (ICT) Proficiency and Productivity</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={0} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={0} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1274,8 +1284,8 @@ const AssessmentInput = (props) => {
                             <h2>Digital Learning and Development</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={14.286} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={14.286} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1376,8 +1386,8 @@ const AssessmentInput = (props) => {
                             <h2>Digital Creation, Problem Solving and Innovation</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={28.571} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={28.571} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1478,8 +1488,8 @@ const AssessmentInput = (props) => {
                             <h2>Digital Communication, Collaboration and Participation</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={42.857} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={42.857} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1580,8 +1590,8 @@ const AssessmentInput = (props) => {
                             <h2>Information Literacy, Data Literacy, and Media Literacy</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={57.143} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={57.143} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1682,8 +1692,8 @@ const AssessmentInput = (props) => {
                             <h2>Digital Identity and Wellbeing</h2>
                         </div>
 
-                        <div className='progress-bar'>
-                            <Progress percent={71.429} />
+                        <div className='progress-barz'>
+                            <SurveyProgress inputPercentage={71.429} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1779,7 +1789,7 @@ const AssessmentInput = (props) => {
 
             {
                 page7 === true ? (
-                    <div>
+                    <div id='results-wrapper'>
                         <div className='chart-wrapper'>
                             
                             {/* type of user - calculated */}
