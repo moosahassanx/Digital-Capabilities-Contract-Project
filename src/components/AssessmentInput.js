@@ -1222,14 +1222,14 @@ const AssessmentInput = (props) => {
                 // converting radar div const to image
                 const imgData = canvas.toDataURL('image/png');
 
-                // const imgProps= pdf.getImageProperties(imgData);
-                // const pdfWidth = pdf.internal.pageSize.getWidth();
+                const imgProps= pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
 
-                // var width = pdf.internal.pageSize.getWidth();
-                // var height = (imgProps.height * pdfWidth) / imgProps.width;
+                var width = pdf.internal.pageSize.getWidth();
+                var height = (imgProps.height * pdfWidth) / imgProps.width;
 
-                // pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, height);
-                // pdf.save("digital-capabilities-results.pdf");
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, height);
+                pdf.save("digital-capabilities-results.pdf");
             }
         );
     }
