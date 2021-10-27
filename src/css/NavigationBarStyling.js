@@ -17,7 +17,7 @@ export const NavigationBarStyling = styled.div `
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: rgb(0, 0, 0);
+        background-color: black;
         position: fixed;
         top: 0;
         width: 100%;
@@ -47,15 +47,28 @@ export const NavigationBarStyling = styled.div `
         height: 100px;
     }
 
+    .first-wrapper
+    {
+        display: flex;
+        flex: 0 0 65%;
+    }
+
     .burger
     {
         display: block;
+        width: 20px;
+        flex: 1;
+    }
+    .burger-wrapper
+    {
+        display: block;
+        flex: 1;
     }
 
     #first-element
     {
         overflow: hidden;
-        width: 70%;
+        width: 90%;
         float: left;
     }
 
@@ -78,6 +91,10 @@ export const NavigationBarStyling = styled.div `
         }
 
         .burger
+        {
+            display: none;
+        }
+        .burger-wrapper
         {
             display: none;
         }

@@ -1257,17 +1257,17 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
-                                <tr>
-                                    <td><p className='table-header'></p></td>
-                                    <td className='border-bottom'><p className='table-header'>Very poor</p></td>
-                                    <td className='shaded'><p className='table-header'>Poor</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Needs work</p></td>
-                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Good</p></td>
-                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Excellent</p></td>
+                                <tr className='scale-header'>
+                                    <th><p className='table-header'></p></th>
+                                    <th className='border-bottom'><p className='table-header'>Very poor</p></th>
+                                    <th className='shaded'><p className='table-header'>Poor</p></th>
+                                    <th className='border-bottom'><p className='table-header'>Needs work</p></th>
+                                    <th className='shaded'><p className='table-header'>Satisfactory</p></th>
+                                    <th className='border-bottom'><p className='table-header'>Good</p></th>
+                                    <th className='shaded'><p className='table-header'>Very Good</p></th>
+                                    <th className='border-bottom'><p className='table-header'>Excellent</p></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1358,7 +1358,7 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1460,7 +1460,7 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1562,7 +1562,7 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1664,7 +1664,7 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1766,9 +1766,9 @@ const AssessmentInput = (props) => {
                             <h3>I am able to</h3>
                         </div>
 
-                        <table cellSpacing='0'>
+                        <table cellSpacing='0' className='survey-question-table'>
                             <thead>
-                                <tr>
+                                <tr className='scale-header'>
                                     <td><p className='table-header'></p></td>
                                     <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                     <td className='shaded'><p className='table-header'>Poor</p></td>
