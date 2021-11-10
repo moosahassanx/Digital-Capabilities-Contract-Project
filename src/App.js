@@ -5,7 +5,6 @@ import NavigationBar from './components/NavigationBar';
 import TestComponent from './components/TestComponent';
 
 const Main = () => {
-
 	return(
 		<div className="App">
       <NavigationBar />

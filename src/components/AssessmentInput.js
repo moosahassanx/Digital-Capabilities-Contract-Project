@@ -22,6 +22,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import "bootstrap/dist/css/bootstrap.css"
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
+import QuestionTable1 from "./QuestionTable1";
 
 const AssessmentInput = (props) => {
 
@@ -1256,6 +1257,8 @@ const AssessmentInput = (props) => {
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
                         </div>
+
+                        {/* <QuestionTable1 /> */}
 
                         <table cellSpacing='0' className='survey-question-table'>
                             <thead>
