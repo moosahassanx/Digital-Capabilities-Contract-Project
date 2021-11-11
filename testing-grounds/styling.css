@@ -1,0 +1,23 @@
+.horizontal-scroll-except-first-column {
+  width: 100%;
+  overflow: auto;
+}
+
+.horizontal-scroll-except-first-column > table {
+  margin-left: 8em;
+}
+
+.sticky-cell,
+.sticky-cell {
+  position: absolute;
+  width: 8em;
+  margin-left: -8em;
+  background: #ccc;
+}
+
+.sticky-cell,
+.sticky-cell {
+  /* Without this, if a cell wraps onto two lines, the first column
+   * will look bad, and may need padding. */
+  white-space: nowrap;
+}

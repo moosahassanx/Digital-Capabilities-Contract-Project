@@ -1,20 +1,23 @@
-body {
-    margin: 0;
-    padding: 2rem;
-}
-  
-table {
-    text-align: left;
-    position: relative;
-    border-collapse: collapse; 
-}
-th, td {
-    padding: 0.25rem;
+.horizontal-scroll-except-first-column {
+    width: 100%;
+    overflow: auto;
 }
 
-th {
-    background: white;
-    position: sticky;
-    top: 30px; /* Don't forget this, required for the stickiness */
-    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+.horizontal-scroll-except-first-column > table {
+    margin-left: 8em;
+}
+
+.sticky-cell,
+.sticky-cell {
+    position: absolute;
+    width: 8em; 
+    margin-left: -8em;
+    background: #ccc;
+}
+
+.sticky-cell,
+.sticky-cell {
+    /* Without this, if a cell wraps onto two lines, the first column
+        * will look bad, and may need padding. */
+    white-space: nowrap;
 }

@@ -61,7 +61,7 @@ body
 .scale-header {
     background: white;
     position: sticky;
-    top: 49px; /* Don't forget this, required for the stickiness */
+    top: 49px;
 }
 
 
@@ -74,6 +74,11 @@ body
 .border-bottom
 {
     background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+}
+
+.dark-border-bottom
+{
     border-bottom: 1px solid black;
 }
 
@@ -214,7 +219,6 @@ body
 
 .indicator
 {
-    display: flex;
     justify-content: center;
     margin: 0 auto;
     position: absolute;
@@ -223,6 +227,11 @@ body
     width: 100%;
     height: 100%;
     padding-top: 40%;
+}
+
+.indicator-section
+{
+    margin-bottom: 1px;
 }
 
 .results-subheading
@@ -247,3 +256,17 @@ body
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 }
+
+.survey-question-wrapper
+{
+    width: 100%;
+}
+
+.col1
+{
+    position: sticky;
+    left: 0;
+    background: white;
+    top: 50px;
+}
+

@@ -1955,14 +1955,14 @@ const AssessmentInput = (props) => {
                                                 </CSVDownloader>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr className='dark-border-bottom'>
                                             <td><p className='results-table-text'>Save a PDF print-out of your results with hyperlinks to learning resources intact.</p></td>
                                             <td><button className='button' type="button" onClick={printDocument} >Download PDF</button></td>
                                         </tr>
-                                        <tr>
+                                        {/* <tr>
                                             <td className='results-shaded-cell'><p className='results-table-text'>Save a ZIP folder with both the CSV and PDF files inside.</p></td>
                                             <td className='results-shaded-cell'><button className='button' type="button" >Download ZIP</button></td>
-                                        </tr>
+                                        </tr> */}
                                     </tbody>
                                 </table>
                             </div>
@@ -2006,7 +2006,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Proficiency and Productivity</p>
+                                        <p className='indicator-section'>Proficiency and Productivity</p>
+                                        <p>{Math.round((sectionsInArray[0]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
                                 
@@ -2055,7 +2056,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Digital Learning and Development</p>
+                                        <p className='indicator-section'>Digital Learning and Development</p>
+                                        <p>{Math.round((sectionsInArray[1]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
 
@@ -2104,7 +2106,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Digital Creation, Problem Solving and Innovation</p>
+                                        <p className='indicator-section'>Digital Creation, Problem Solving and Innovation</p>
+                                        <p>{Math.round((sectionsInArray[2]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
 
@@ -2155,7 +2158,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Digital Communication, Collaboration and Participation</p>
+                                        <p className='indicator-section'>Digital Communication, Collaboration and Participation</p>
+                                        <p>{Math.round((sectionsInArray[3]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
 
@@ -2204,7 +2208,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Information Literacy, Data Literacy and Media Literacy</p>
+                                        <p className='indicator-section'>Information Literacy, Data Literacy and Media Literacy</p>
+                                        <p>{Math.round((sectionsInArray[4]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
 
@@ -2253,7 +2258,8 @@ const AssessmentInput = (props) => {
                                     className='centralise-wheel'
                                 >
                                     <div className="indicator">
-                                        <p>Digital Identity and Wellbeing</p>
+                                        <p className='indicator-section'>Digital Identity and Wellbeing</p>
+                                        <p>{Math.round((sectionsInArray[5]/42)*100)}%</p>
                                     </div>
                                 </ProgressBar>
 

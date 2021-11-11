@@ -3,6 +3,8 @@ import uonImage from './img/uon-logo.png';
 import AssessmentInput from './components/AssessmentInput';
 import NavigationBar from './components/NavigationBar';
 import TestComponent from './components/TestComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Main = () => {
 	return(
@@ -14,6 +16,9 @@ const Main = () => {
 
       <hr></hr>
       <AssessmentInput />
+
+      
+      {/* <TestComponent /> */}
     </div>
 	)
 };
