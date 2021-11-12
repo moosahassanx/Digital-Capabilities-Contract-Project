@@ -4,11 +4,9 @@ import '../css/AssessmentInput.css'
 import { Radar } from "react-chartjs-2";
 import UploadCSV from './UploadCSV';
 import { CSVDownloader } from 'react-papaparse';
-import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 import UserDescription from './UserDescription';
 import ProgressBar from 'react-customizable-progressbar'
-import Accordion from 'react-bootstrap/Accordion';
 import SurveyProgress from './SurveyProgress';
 import SurveyProgress2 from './SurveyProgress2';
 import SurveyProgress3 from './SurveyProgress3';
@@ -22,7 +20,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import "bootstrap/dist/css/bootstrap.css"
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
-import QuestionTable1 from "./QuestionTable1";
+import Table from 'react-bootstrap/Table';
 
 const AssessmentInput = (props) => {
 
@@ -1256,86 +1254,85 @@ const AssessmentInput = (props) => {
 
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        {/* <QuestionTable1 /> */}
-
-                        <table cellSpacing='0' className='survey-question-table'>
-                            <thead>
-                                <tr className='scale-header'>
-                                    <th><p className='table-header'></p></th>
-                                    <th className='border-bottom'><p className='table-header'>Very poor</p></th>
-                                    <th className='shaded'><p className='table-header'>Poor</p></th>
-                                    <th className='border-bottom'><p className='table-header'>Needs work</p></th>
-                                    <th className='shaded'><p className='table-header'>Satisfactory</p></th>
-                                    <th className='border-bottom'><p className='table-header'>Good</p></th>
-                                    <th className='shaded'><p className='table-header'>Very Good</p></th>
-                                    <th className='border-bottom'><p className='table-header'>Excellent</p></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p className='question'>Choose the appropriate digital tools or devices which assist me in reaching my learning goals</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Use digital communication services, tools, and mobile apps (such as email and social networking applications) to communicate with others</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Use internet browsers to find the required documents or data</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Perform troubleshooting (i.e., problem-solving) on my computer and digital devices</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Code applications or programs</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
+                        <thead className='scale-header'>
+                            <tr>
+                                <th><p className='table-questions-header'></p></th>
+                                <th className='border-bottom'><p className='table-header'>Very poor</p></th>
+                                <th className='shaded'><p className='table-header'>Poor</p></th>
+                                <th className='border-bottom'><p className='table-header'>Needs work</p></th>
+                                <th className='shaded'><p className='table-header'>Satisfactory</p></th>
+                                <th className='border-bottom'><p className='table-header'>Good</p></th>
+                                <th className='shaded'><p className='table-header'>Very Good</p></th>
+                                <th className='border-bottom'><p className='table-header'>Excellent</p></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><p className='question'>Choose the appropriate digital tools or devices which assist me in reaching my learning goals</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Use digital communication services, tools, and mobile apps (such as email and social networking applications) to communicate with others</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Use internet browsers to find the required documents or data</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Perform troubleshooting (i.e., problem-solving) on my computer and digital devices</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Code applications or programs</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q5-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                        </tbody>
+                        </Table>
 
                         <br></br>
 
@@ -1359,84 +1356,85 @@ const AssessmentInput = (props) => {
                         
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        <table cellSpacing='0' className='survey-question-table'>
-                            <thead>
-                                <tr>
-                                    <td><p className='table-header'></p></td>
-                                    <td className='border-bottom'><p className='table-header'>Very poor</p></td>
-                                    <td className='shaded'><p className='table-header'>Poor</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Needs work</p></td>
-                                    <td className='shaded'><p className='table-header'>Satisfactory</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Good</p></td>
-                                    <td className='shaded'><p className='table-header'>Very Good</p></td>
-                                    <td className='border-bottom'><p className='table-header'>Excellent</p></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p className='question'>Use digital technologies (such as digital calendars/planners) to schedule or plan my study</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Use digital technologies (such as Zoom, Microsoft Teams, BlackBoard or Padlet) to share information with instructors and other students.</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Use digital tools to record learning events (e.g., lectures, tutorials, webinars) or information for later review.</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Sign onto and use the University’s supported platforms (such as BlackBoard, MyUON, the Library databases) to find the required document or data.</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Identify and participate in learning opportunities and courses available in a digital environment (such as YouTube, FutureLearn, and edX online courses).</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                                <tr>
-                                    <td><p className='question'>Analyse my digital strengths and weaknesses and reflect on my personal learning</p></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Poor'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very good'></input><div className='radio__radio'></div></label></td>
-                                    <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
+                        <thead>
+                            <tr>
+                                <td><p className='table-header'></p></td>
+                                <td className='border-bottom'><p className='table-header'>Very poor</p></td>
+                                <td className='shaded'><p className='table-header'>Poor</p></td>
+                                <td className='border-bottom'><p className='table-header'>Needs work</p></td>
+                                <td className='shaded'><p className='table-header'>Satisfactory</p></td>
+                                <td className='border-bottom'><p className='table-header'>Good</p></td>
+                                <td className='shaded'><p className='table-header'>Very Good</p></td>
+                                <td className='border-bottom'><p className='table-header'>Excellent</p></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><p className='question'>Use digital technologies (such as digital calendars/planners) to schedule or plan my study</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-1' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Use digital technologies (such as Zoom, Microsoft Teams, BlackBoard or Padlet) to share information with instructors and other students.</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-2' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Use digital tools to record learning events (e.g., lectures, tutorials, webinars) or information for later review.</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-3' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Sign onto and use the University’s supported platforms (such as BlackBoard, MyUON, the Library databases) to find the required document or data.</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-4' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Identify and participate in learning opportunities and courses available in a digital environment (such as YouTube, FutureLearn, and edX online courses).</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-5' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                            <tr>
+                                <td><p className='question'>Analyse my digital strengths and weaknesses and reflect on my personal learning</p></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Poor'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Needs work'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Satisfactory'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Good'></input><div className='radio__radio'></div></label></td>
+                                <td className='shaded'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Very good'></input><div className='radio__radio'></div></label></td>
+                                <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q6-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
+                            </tr>
+                        </tbody>
+                        </Table>
                         
                         <br></br>
                         
@@ -1461,9 +1459,10 @@ const AssessmentInput = (props) => {
 
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        <table cellSpacing='0' className='survey-question-table'>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1538,7 +1537,7 @@ const AssessmentInput = (props) => {
                                     <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q7-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </Table>
                         
                         <br></br>
 
@@ -1563,9 +1562,10 @@ const AssessmentInput = (props) => {
                         
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        <table cellSpacing='0' className='survey-question-table'>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1640,7 +1640,7 @@ const AssessmentInput = (props) => {
                                     <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q8-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </Table>
                         
                         <br></br>
 
@@ -1665,9 +1665,10 @@ const AssessmentInput = (props) => {
 
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        <table cellSpacing='0' className='survey-question-table'>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
                                     <td><p className='table-header'></p></td>
@@ -1742,7 +1743,7 @@ const AssessmentInput = (props) => {
                                     <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q9-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </Table>
 
                         <br></br>
 
@@ -1767,9 +1768,10 @@ const AssessmentInput = (props) => {
                         
                         <div className='entry-heading'>
                             <h3>I am able to</h3>
+                            <p className='mobile-help-message'>Tip: Swipe left and right on the table to view other options</p>
                         </div>
 
-                        <table cellSpacing='0' className='survey-question-table'>
+                        <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr className='scale-header'>
                                     <td><p className='table-header'></p></td>
@@ -1844,8 +1846,7 @@ const AssessmentInput = (props) => {
                                     <td className='border-bottom'><label className='radio'><input className='radio__input' type='radio' name='Q10-6' value='Excellent'></input><div className='radio__radio'></div></label></td>
                                 </tr>
                             </tbody>
-                        </table>
-                        
+                        </Table>
                         <br></br>
 
                         <button className='button' type="button" onClick={prevPage}>Back</button>
@@ -1858,7 +1859,7 @@ const AssessmentInput = (props) => {
 
             {
                 page7 === true ? (
-                    <div id='results-wrapper'>
+                    <div id='form-wrapper'>
                         <div className='chart-wrapper'>
                             
                             {/* type of user - calculated */}
@@ -1868,104 +1869,101 @@ const AssessmentInput = (props) => {
                             <div className='results-information'>
                                 <UserDescription passedUserType={userType} />
                             </div>
+                        </div>
 
-                            {/* generate radar chart */}
-                            <div className='radar' id='radar'>
-                                <Radar data = {chartData} options={{
-                                    type: "radar",
-                                    responsive: true,
-                                    title: {text: 'CHART TITLE', display: true},
-                                    scale: {
-                                        ticks: {
-                                            beginAtZero: true,
-                                            max: 45,
-                                            min: 0
-                                        }
+                        {/* generate radar chart */}
+                        <div className='radar' id='radar'>
+                            <Radar data = {chartData} options={{
+                                type: "radar",
+                                responsive: true,
+                                title: {text: 'CHART TITLE', display: true},
+                                scale: {
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 45,
+                                        min: 0
                                     }
-                                }} />
-                            </div>
+                                }
+                            }} />
+                        </div>
 
-                            {/* Save results */}
-                            <div>
-                                <h2 className='results-subheading'>Save Results</h2>
-                                <table className='results-table' cellSpacing='0'>
-                                    <tbody>
-                                        {/* download csv file */}
-                                        <tr>
-                                            <td className='results-shaded-cell'><p className='results-table-text'>Save your results locally on a CSV file to reupload and view in another session.</p></td>
-                                            <td className='results-shaded-cell'>
-                                                <CSVDownloader className='button'
-                                                    data={[
-                                                    {
-                                                        "Raters Group": "GroupCaption",
-                                                        "Rater ID": "RaterID",
-                                                        "First Name": "Rater_FirstName",
-                                                        "Last Name": "Rater_LastName",
-                                                        "Email": "Rater_FullEmail",
-                                                        "Mobile Number": "Rater_FullCell",
-                                                        "Q1_Gender_Gender": "Q2Row1",
-                                                        "Q2_Age_Age": "Q3Row1",
-                                                        "Q3_I'm a_I'm a": "Q4Row1",
-                                                        "Q4_I'm a student at the school of_I'm a student at the school of": "Q5Row1",
-                                                        "Q4_I'm a student at the school of_I'm a student at the school of_Comments": "Q5Comment1",
-                                                        "Q5_I am able to_Choose the appropriate digital tools or devices which assist me in reaching my learning goals": "Q8Row1",
-                                                        "Q5_I am able to_Use digital communication services, tools, and mobile apps (such as email and social networking applications) to communicate with others": "Q8Row2",
-                                                        "Q5_I am able to_Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files.": "Q8Row3",
-                                                        "Q5_I am able to_Use internet browsers to find the required documents or data": "Q8Row4",
-                                                        "Q5_I am able to_Perform troubleshooting (i.e., problem-solving) on my computer and digital devices": "Q8Row5",
-                                                        "Q5_I am able to_Code applications or programs": "Q8Row6",
-                                                        "Q6_I am able to_Use digital technologies (such as digital calendars/planners) to schedule or plan my study": "Q11Row1",
-                                                        "Q6_I am able to_Use digital technologies (such as Zoom, Microsoft Teams, BlackBoard or Padlet) to share information with instructors and other students.": "Q11Row2",
-                                                        "Q6_I am able to_Use digital tools to record learning events (e.g., lectures, tutorials, webinars) or information for later review": "Q11Row3",
-                                                        "Q6_I am able to_Sign onto and use the University’s supported platforms (such as BlackBoard, MyUON, the Library databases) to find the required document or data.": "Q11Row4",
-                                                        "Q6_I am able to_Identify and participate in learning opportunities and courses available in a digital environment (such as YouTube, FutureLearn, and edX online courses).": "Q11Row5",
-                                                        "Q6_I am able to_Analyse my digital strengths and weaknesses and reflect on my personal learning": "Q11Row6",
-                                                        "Q7_I am able to_Use digital tools to edit an image and create a video": "Q14Row1",
-                                                        "Q7_I am able to_Sesign and administer online surveys (such as SurveyMonkey, Qualtrics, and Google Docs) to gather qualitative and quantitative data.": "Q14Row2",
-                                                        "Q7_I am able to_Analyse data using qualitative or quantitative software and digital tools": "Q14Row3",
-                                                        "Q7_I am able to_Evaluate a problem by gathering appropriate information using digital tools": "Q14Row4",
-                                                        "Q7_I am able to_Generate a new written and/or visual digital product by comparing and synthesising information that was found elsewhere": "Q14Row5",
-                                                        "Q7_I am able to_Adapt and integrate a new technology into my learning environment": "Q14Row6",
-                                                        "Q8_I am able to_Interact online with people from diverse communities and respect multiple perspect": "Q20Row1",
-                                                        "Q8_I am able to_Work remotely with colleagues/students/classmates using online collaborative tools": "Q20Row2",
-                                                        "Q8_I am able to_Use technology to ask a question or deliver a message in a socially acceptable way (i.e., netiquette rules)": "Q20Row3",
-                                                        "Q8_I am able to_Contribute to comments in online discussions (online forum, blog or wiki) on social issues encountered in everyday life.": "Q20Row4",
-                                                        "Q8_I am able to_Find relevant communities and groups online that suit my interests and needs": "Q20Row5",
-                                                        "Q8_I am able to_Share content and information using social networks (such as Facebook) and collaborative platforms (such as OneDrive, Google Drive, Dropbox, etc.)": "Q20Row6",
-                                                        "Q9_I am able to_Receive and respond to messages in a range of digital media (such as text, graphics, video, animation, audio and multimedia)": "Q23Row1",
-                                                        "Q9_I am able to_Database applications to enter and retrieve information required for my studies": "Q23Row2",
-                                                        "Q9_I am able to_The filtering and advanced search options in online databases (such as Google Scholar)": "Q23Row3",
-                                                        "Q9_I am able to_Assess the truthfulness of information before sharing it on social media or with other students": "Q23Row4",
-                                                        "Q9_I am able to_Follow the rules of copyright and give credit for others’ work through proper referencing": "Q23Row5",
-                                                        "Q9_I am able to_Distinguish the differences between primary and secondary sources": "Q23Row6",
-                                                        "Q10_I am able to_Evaluate content of emails/messages/calls for spam and scam content": "Q26Row1",
-                                                        "Q10_I am able to_Protect my personal data in online and offline environments": "Q26Row2",
-                                                        "Q10_I am able to_Act positively against others’ damaging online behaviours (e.g., reporting or rejecting cyberbullying)": "Q26Row3",
-                                                        "Q10_I am able to_Be considerate of others' privacy when taking video or pictures": "Q26Row4",
-                                                        "Q10_I am able to_Adjust the privacy settings of my digital devices and tools": "Q26Row5",
-                                                        "Q10_I am able to_Protect my mental, physical, and emotional health when using digital technologies or tools": "Q26Row6"
-                                                    },
-                                                    downloadChartData
-                                                    ]}
-                                                    type="button"
-                                                    filename={'filenameTest'}
-                                                    bom={true}
-                                                >
-                                                    Download CSV
-                                                </CSVDownloader>
-                                            </td>
-                                        </tr>
-                                        <tr className='dark-border-bottom'>
-                                            <td><p className='results-table-text'>Save a PDF print-out of your results with hyperlinks to learning resources intact.</p></td>
-                                            <td><button className='button' type="button" onClick={printDocument} >Download PDF</button></td>
-                                        </tr>
-                                        {/* <tr>
-                                            <td className='results-shaded-cell'><p className='results-table-text'>Save a ZIP folder with both the CSV and PDF files inside.</p></td>
-                                            <td className='results-shaded-cell'><button className='button' type="button" >Download ZIP</button></td>
-                                        </tr> */}
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div className='capabilities-wrapper'>
+
+                            {/* Save results wrap */}
+                            <h2 className='results-subheading'>Save Results</h2>
+                            <table className='results-table' cellSpacing='0'>
+                                <tbody>
+                                    {/* download csv file */}
+                                    <tr>
+                                        <td className='results-shaded-cell'><p className='results-table-text'>Save your results locally on a CSV file to reupload and view in another session.</p></td>
+                                        <td className='results-shaded-cell'>
+                                            <CSVDownloader className='button'
+                                                data={[
+                                                {
+                                                    "Raters Group": "GroupCaption",
+                                                    "Rater ID": "RaterID",
+                                                    "First Name": "Rater_FirstName",
+                                                    "Last Name": "Rater_LastName",
+                                                    "Email": "Rater_FullEmail",
+                                                    "Mobile Number": "Rater_FullCell",
+                                                    "Q1_Gender_Gender": "Q2Row1",
+                                                    "Q2_Age_Age": "Q3Row1",
+                                                    "Q3_I'm a_I'm a": "Q4Row1",
+                                                    "Q4_I'm a student at the school of_I'm a student at the school of": "Q5Row1",
+                                                    "Q4_I'm a student at the school of_I'm a student at the school of_Comments": "Q5Comment1",
+                                                    "Q5_I am able to_Choose the appropriate digital tools or devices which assist me in reaching my learning goals": "Q8Row1",
+                                                    "Q5_I am able to_Use digital communication services, tools, and mobile apps (such as email and social networking applications) to communicate with others": "Q8Row2",
+                                                    "Q5_I am able to_Use software and tools (such as Office 365 and Adobe) to organise, edit, manage, and back up digital documents and files.": "Q8Row3",
+                                                    "Q5_I am able to_Use internet browsers to find the required documents or data": "Q8Row4",
+                                                    "Q5_I am able to_Perform troubleshooting (i.e., problem-solving) on my computer and digital devices": "Q8Row5",
+                                                    "Q5_I am able to_Code applications or programs": "Q8Row6",
+                                                    "Q6_I am able to_Use digital technologies (such as digital calendars/planners) to schedule or plan my study": "Q11Row1",
+                                                    "Q6_I am able to_Use digital technologies (such as Zoom, Microsoft Teams, BlackBoard or Padlet) to share information with instructors and other students.": "Q11Row2",
+                                                    "Q6_I am able to_Use digital tools to record learning events (e.g., lectures, tutorials, webinars) or information for later review": "Q11Row3",
+                                                    "Q6_I am able to_Sign onto and use the University’s supported platforms (such as BlackBoard, MyUON, the Library databases) to find the required document or data.": "Q11Row4",
+                                                    "Q6_I am able to_Identify and participate in learning opportunities and courses available in a digital environment (such as YouTube, FutureLearn, and edX online courses).": "Q11Row5",
+                                                    "Q6_I am able to_Analyse my digital strengths and weaknesses and reflect on my personal learning": "Q11Row6",
+                                                    "Q7_I am able to_Use digital tools to edit an image and create a video": "Q14Row1",
+                                                    "Q7_I am able to_Sesign and administer online surveys (such as SurveyMonkey, Qualtrics, and Google Docs) to gather qualitative and quantitative data.": "Q14Row2",
+                                                    "Q7_I am able to_Analyse data using qualitative or quantitative software and digital tools": "Q14Row3",
+                                                    "Q7_I am able to_Evaluate a problem by gathering appropriate information using digital tools": "Q14Row4",
+                                                    "Q7_I am able to_Generate a new written and/or visual digital product by comparing and synthesising information that was found elsewhere": "Q14Row5",
+                                                    "Q7_I am able to_Adapt and integrate a new technology into my learning environment": "Q14Row6",
+                                                    "Q8_I am able to_Interact online with people from diverse communities and respect multiple perspect": "Q20Row1",
+                                                    "Q8_I am able to_Work remotely with colleagues/students/classmates using online collaborative tools": "Q20Row2",
+                                                    "Q8_I am able to_Use technology to ask a question or deliver a message in a socially acceptable way (i.e., netiquette rules)": "Q20Row3",
+                                                    "Q8_I am able to_Contribute to comments in online discussions (online forum, blog or wiki) on social issues encountered in everyday life.": "Q20Row4",
+                                                    "Q8_I am able to_Find relevant communities and groups online that suit my interests and needs": "Q20Row5",
+                                                    "Q8_I am able to_Share content and information using social networks (such as Facebook) and collaborative platforms (such as OneDrive, Google Drive, Dropbox, etc.)": "Q20Row6",
+                                                    "Q9_I am able to_Receive and respond to messages in a range of digital media (such as text, graphics, video, animation, audio and multimedia)": "Q23Row1",
+                                                    "Q9_I am able to_Database applications to enter and retrieve information required for my studies": "Q23Row2",
+                                                    "Q9_I am able to_The filtering and advanced search options in online databases (such as Google Scholar)": "Q23Row3",
+                                                    "Q9_I am able to_Assess the truthfulness of information before sharing it on social media or with other students": "Q23Row4",
+                                                    "Q9_I am able to_Follow the rules of copyright and give credit for others’ work through proper referencing": "Q23Row5",
+                                                    "Q9_I am able to_Distinguish the differences between primary and secondary sources": "Q23Row6",
+                                                    "Q10_I am able to_Evaluate content of emails/messages/calls for spam and scam content": "Q26Row1",
+                                                    "Q10_I am able to_Protect my personal data in online and offline environments": "Q26Row2",
+                                                    "Q10_I am able to_Act positively against others’ damaging online behaviours (e.g., reporting or rejecting cyberbullying)": "Q26Row3",
+                                                    "Q10_I am able to_Be considerate of others' privacy when taking video or pictures": "Q26Row4",
+                                                    "Q10_I am able to_Adjust the privacy settings of my digital devices and tools": "Q26Row5",
+                                                    "Q10_I am able to_Protect my mental, physical, and emotional health when using digital technologies or tools": "Q26Row6"
+                                                },
+                                                downloadChartData
+                                                ]}
+                                                type="button"
+                                                filename={'filenameTest'}
+                                                bom={true}
+                                            >
+                                                Download CSV
+                                            </CSVDownloader>
+                                        </td>
+                                    </tr>
+                                    <tr className='dark-border-bottom'>
+                                        <td><p className='results-table-text'>Save a PDF print-out of your results with hyperlinks to learning resources intact.</p></td>
+                                        <td><button className='button' type="button" onClick={printDocument} >Download PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <br></br>
 
                             {/* csv upload */}
@@ -1987,9 +1985,11 @@ const AssessmentInput = (props) => {
                             <br></br>
                             <br></br>
 
+                        </div>
+                        <div className='capabilities-wrapper'>
+
                             {/* 6 wheels for each category */}
                             <h2>Capabilities Breakdown and Resource Links</h2>
-                            
                             <div id='wheel-one' className='wheel-1'>
                                 <ProgressBar
                                     radius={100}
@@ -2090,7 +2090,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div id='wheel-three' className='wheel-1'>
+                            <div id='wheel-three' className='wheel-3'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[2]/42)*100}
@@ -2142,7 +2142,7 @@ const AssessmentInput = (props) => {
                             <br></br>
                             <br></br>
 
-                            <div id='wheel-four' className='wheel-2'>
+                            <div id='wheel-four' className='wheel-1'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[3]/42)*100}
@@ -2192,7 +2192,7 @@ const AssessmentInput = (props) => {
                                 </div>
                             </div>
 
-                            <div id='wheel-five' className='wheel-1'>
+                            <div id='wheel-five' className='wheel-2'>
                                 <ProgressBar
                                     radius={100}
                                     progress={(sectionsInArray[4]/42)*100}
@@ -2291,9 +2291,9 @@ const AssessmentInput = (props) => {
                                     </Popover>
                                 </div>
                             </div>
-
-                            <button className='button' type="button" onClick={restart}>Restart Survey</button>
                         </div>
+
+                        <button className='button' type="button" onClick={restart}>Restart Survey</button>
                     </div>
                 ) : (
                     null

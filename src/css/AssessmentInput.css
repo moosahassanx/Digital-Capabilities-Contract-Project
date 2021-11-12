@@ -44,6 +44,7 @@ body
     margin-right: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+    width: 190px;
 }
 
 .button:hover
@@ -58,10 +59,16 @@ body
     padding-right: 2px;
 }
 
+
+.table-questions-header
+{
+    width: 205px;
+}
+
 .scale-header {
-    background: white;
+    /* background: white; */
     position: sticky;
-    top: 49px;
+    top: 0px;
 }
 
 
@@ -142,9 +149,16 @@ body
 
 .radar
 {
-    width: 90%;
+    width: 100%;
     height: auto;
     margin: auto;
+}
+
+@media only screen and (min-width: 650px) {
+    .radar
+    {
+        width: 50%;
+    }
 }
 
 .csv-download
@@ -158,6 +172,12 @@ body
 }
 
 /* all the 6 wheels */
+.capabilities-wrapper
+{
+   padding-left: 20%;
+   padding-right: 20%;
+}
+
 .parent-wheel
 {
     width: 1000px;
@@ -198,6 +218,60 @@ body
     width: 33%;
     overflow: hidden;
     display: inline-block;
+    background-color: #f4f4f4;
+}
+
+/* TABLET MODE */
+@media only screen and (max-width: 1300px) {
+    .wheel-1
+    {
+        width: 50%;
+    }
+    .wheel-2
+    {
+        width: 50%;
+    }
+    .wheel-3
+    {
+        width: 100%;
+    }
+    .capabilities-wrapper
+    {
+    padding-left: 10%;
+    padding-right: 10%;
+    }
+}
+/* MOBILE MODE */
+@media only screen and (max-width: 1000px) {
+    .wheel-1
+    {
+        width: 100%;
+        background-color: #f4f4f4;
+    }
+    .wheel-2
+    {
+        width: 100%;
+        background-color: #f4f4f4;
+    }
+    .wheel-3
+    {
+        width: 100%;
+        background-color: #f4f4f4;
+    }
+    .capabilities-wrapper
+    {
+    padding-left: 10%;
+    padding-right: 10%;
+    }
+}
+
+/* ACTUAL MOBILE MODE */
+@media only screen and (max-width: 500px) {
+    .capabilities-wrapper
+    {
+    padding-left: 1%;
+    padding-right: 1%;
+    }
 }
 
 .dropdown-wrapper
@@ -270,3 +344,17 @@ body
     top: 50px;
 }
 
+.mobile-help-message
+{
+    display: block;
+    color: #ff0000;
+}
+
+/* message to show only for mobile/tablet users */
+@media only screen and (min-width: 1180px)
+{
+    .mobile-help-message
+    {
+        display: none;
+    }
+}

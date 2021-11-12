@@ -1,21 +1,9 @@
-•    More distance learning questions (to reflect the current times)
-•    YouTube is mentioned in there but forgotten Linkedin Learning
-•    Add section at the bottom asking if anything else is required
-•    Include a section at the bottom to add a technology or digital application theyd be proficient in
-•    Remove the full stop from the third question
-•    Maybe add an N/A column
-
 •    Have improvement notes in the results page
 •    Add ways on how to improve the weaknesses for each section
 
 •    When clicking on the previous button youd lose the answers you put in, need to fix that
-•    Need resolution responsiveness
-•    Add progress bar to the end of the quiz
 •    Add a bit of colour to the radar chart
 ======================================================================================================
-
-•    get rid of the dashes in the blank header (you dont need it anymore)
-•    have the summary page done
 •    have the help text after receiving the results from the user
 •    have loading circle when calculating results (makes it look more responsive and interactive)
 	•    "Calculating user type..."
