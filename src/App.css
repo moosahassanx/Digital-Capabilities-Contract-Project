@@ -33,12 +33,6 @@
   padding-top: 50px;
 }
 
-.chart-wrapper
-{
-  max-width: 45%;
-  margin: auto;
-}
-
 .user-type
 {
   color: blue;
@@ -48,4 +42,18 @@
 .uon-image
 {
   height: 100px;
+}
+
+.chart-wrapper
+{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+@media only screen and (max-width: 500px) {
+  .chart-wrapper
+  {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
 }

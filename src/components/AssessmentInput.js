@@ -1,26 +1,27 @@
+// importing react features, stylesheets, community lirbaries and other components
 import { useState, useEffect } from 'react';
 import React from 'react';
-import '../css/AssessmentInput.css'
-import { Radar } from "react-chartjs-2";
-import UploadCSV from './UploadCSV';
-import { CSVDownloader } from 'react-papaparse';
+import '../css/AssessmentInput.css';
 import "react-sweet-progress/lib/style.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import { Radar } from "react-chartjs-2";
+import { CSVDownloader } from 'react-papaparse';
+import ProgressBar from 'react-customizable-progressbar';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+import Table from 'react-bootstrap/Table';
+import UploadCSV from './UploadCSV';
 import UserDescription from './UserDescription';
-import ProgressBar from 'react-customizable-progressbar'
 import SurveyProgress from './SurveyProgress';
 import SurveyProgress2 from './SurveyProgress2';
 import SurveyProgress3 from './SurveyProgress3';
 import SurveyProgress4 from './SurveyProgress4';
 import SurveyProgress5 from './SurveyProgress5';
 import SurveyProgress6 from './SurveyProgress6';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import "bootstrap/dist/css/bootstrap.css"
-import html2canvas from 'html2canvas';
-import { jsPDF } from "jspdf";
-import Table from 'react-bootstrap/Table';
 
 const AssessmentInput = (props) => {
 
@@ -1362,7 +1363,7 @@ const AssessmentInput = (props) => {
                         <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                         <thead>
                             <tr>
-                                <td><p className='table-header'></p></td>
+                                <th><p className='table-questions-header'></p></th>
                                 <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                 <td className='shaded'><p className='table-header'>Poor</p></td>
                                 <td className='border-bottom'><p className='table-header'>Needs work</p></td>
@@ -1465,7 +1466,7 @@ const AssessmentInput = (props) => {
                         <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
-                                    <td><p className='table-header'></p></td>
+                                    <th><p className='table-questions-header'></p></th>
                                     <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                     <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td className='border-bottom'><p className='table-header'>Needs work</p></td>
@@ -1568,7 +1569,7 @@ const AssessmentInput = (props) => {
                         <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
-                                    <td><p className='table-header'></p></td>
+                                    <th><p className='table-questions-header'></p></th>
                                     <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                     <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td className='border-bottom'><p className='table-header'>Needs work</p></td>
@@ -1671,7 +1672,7 @@ const AssessmentInput = (props) => {
                         <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr>
-                                    <td><p className='table-header'></p></td>
+                                    <th><p className='table-questions-header'></p></th>
                                     <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                     <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td className='border-bottom'><p className='table-header'>Needs work</p></td>
@@ -1774,7 +1775,7 @@ const AssessmentInput = (props) => {
                         <Table responsive striped='true' size='sm' cellSpacing='0' className='survey-question-table'>
                             <thead>
                                 <tr className='scale-header'>
-                                    <td><p className='table-header'></p></td>
+                                    <th><p className='table-questions-header'></p></th>
                                     <td className='border-bottom'><p className='table-header'>Very poor</p></td>
                                     <td className='shaded'><p className='table-header'>Poor</p></td>
                                     <td className='border-bottom'><p className='table-header'>Needs work</p></td>
@@ -1951,7 +1952,7 @@ const AssessmentInput = (props) => {
                                                 downloadChartData
                                                 ]}
                                                 type="button"
-                                                filename={'filenameTest'}
+                                                filename={'digital-capabilities-results'}
                                                 bom={true}
                                             >
                                                 Download CSV
