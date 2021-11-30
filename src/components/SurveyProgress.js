@@ -1,17 +1,39 @@
-import { render } from '@testing-library/react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import '../css/SurveyProgress.css';
-import { useState, useEffect } from 'react';
+/*
+To add more progress bars to the survey, add another <td> tag to the  
+*/
 
+
+// library imports
+import ProgressBar from 'react-bootstrap/ProgressBar';      // bootstrap
+import '../css/SurveyProgress.css';                         // css
+import { useState, useEffect } from 'react';                // react native
 
 const SurveyProgress = (props) => {
 
-    function renderFullBars()
+    // use state
+    const [linesFilled, setLinesFilled] = useState([]);
+    const [linesUnFilled, setLinesUnFilled] = useState([]);
+
+    // use effect
+    useEffect(() => {
+        displayFilled();
+    }, [linesFilled])
+
+    // function to display number of filled and unfilled
+    function displayFilled()
     {
-        for (var i = 0; i < props.page; i++)
-        {
-            renderFullBars.push(<td><ProgressBar animated now={100} /></td>)
+        let strings = [];
+        for (var i = 0; i < props.page; i++) {
+            strings.push(<td><ProgressBar animated now={100}/></td>);
         }
+
+        setLinesFilled(strings);
+
+        strings = [];
+        for (var i = 6; i > props.page; i--) {
+            strings.push(<td><ProgressBar animated now={0}/></td>);
+        }
+        setLinesUnFilled(strings);
     }
 
     // display HTML code dynamically
@@ -20,13 +42,8 @@ const SurveyProgress = (props) => {
             <table className='progress-table'>
                 <thead>
                     <tr>
-                        {renderFullBars}
-                        <td><ProgressBar animated now={100} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
-                        <td><ProgressBar animated now={0} /></td>
+                        {linesFilled}
+                        {linesUnFilled}
                     </tr>
                 </thead>
                 <tbody>

@@ -17,11 +17,6 @@ import Table from 'react-bootstrap/Table';
 import UploadCSV from './UploadCSV';
 import UserDescription from './UserDescription';
 import SurveyProgress from './SurveyProgress';
-import SurveyProgress2 from './SurveyProgress2';
-import SurveyProgress3 from './SurveyProgress3';
-import SurveyProgress4 from './SurveyProgress4';
-import SurveyProgress5 from './SurveyProgress5';
-import SurveyProgress6 from './SurveyProgress6';
 
 const AssessmentInput = (props) => {
 
@@ -1352,7 +1347,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress2 page={2} />
+                            <SurveyProgress page={2} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1455,7 +1450,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress3 page={3} />
+                            <SurveyProgress page={3} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1558,7 +1553,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress4 page={4} />
+                            <SurveyProgress page={4} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -1661,7 +1656,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress5 page={5} />
+                            <SurveyProgress page={5} />
                         </div>
 
                         <div className='entry-heading'>
@@ -1764,7 +1759,7 @@ const AssessmentInput = (props) => {
                         </div>
 
                         <div className='progress-barz'>
-                            <SurveyProgress6 page={6} />
+                            <SurveyProgress page={6} />
                         </div>
                         
                         <div className='entry-heading'>
@@ -2140,8 +2135,6 @@ const AssessmentInput = (props) => {
                                     </Popover>
                                 </div>
                             </div>
-                            <br></br>
-                            <br></br>
 
                             <div id='wheel-four' className='wheel-1'>
                                 <ProgressBar
