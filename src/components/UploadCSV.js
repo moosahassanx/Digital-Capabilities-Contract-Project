@@ -292,7 +292,7 @@ const UploadCSV = (props) => {
     console.log("valueQ10: " + valueQ10);
 
     setData({
-      label:'Previous Score (FROM CSV UPLOAD)',
+      label:'Previous Score (CSV Upload)',
       data:[
           valueQ5,
           valueQ6,

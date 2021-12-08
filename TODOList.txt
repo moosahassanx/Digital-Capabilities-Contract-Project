@@ -14,3 +14,8 @@ OTHER IMPORTANT STUFF:
 •    make the table header sticky - bootstrap is a bit more complicated with that and im not sure how that would work
 •    filenameTest.csv needs to be renamed to whatever the user's name is or if 
 •    pdf doesnt even work, not sure why. ill look into this later
+
+- colon after "able to"
+- LEARN MARKDOWN AND MAKE IT WORK WITH THE SITE
+- extract as many components as possible for engineered code
+

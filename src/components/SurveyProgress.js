@@ -1,8 +1,3 @@
-/*
-To add more progress bars to the survey, add another <td> tag to the  
-*/
-
-
 // library imports
 import ProgressBar from 'react-bootstrap/ProgressBar';      // bootstrap
 import '../css/SurveyProgress.css';                         // css
@@ -22,13 +17,14 @@ const SurveyProgress = (props) => {
     // function to display number of filled and unfilled
     function displayFilled()
     {
+        // coloured bars
         let strings = [];
         for (var i = 0; i < props.page; i++) {
             strings.push(<td><ProgressBar animated now={100}/></td>);
         }
-
         setLinesFilled(strings);
 
+        // uncoloured bars
         strings = [];
         for (var i = 6; i > props.page; i--) {
             strings.push(<td><ProgressBar animated now={0}/></td>);

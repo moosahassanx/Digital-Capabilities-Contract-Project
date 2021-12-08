@@ -1,7 +1,10 @@
+// importing react and community library
 import React, { Component } from 'react';
 import {Radar} from 'react-chartjs-2';
 
 class Chart extends Component{
+
+  // set default data on first generation of component
   constructor(props){
     super(props);
     this.state = {
@@ -24,7 +27,7 @@ class Chart extends Component{
           options={{
             title:{
               display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
+              text:'Digits dexterity results '+this.props.location,
               fontSize:25
             },
             legend:{

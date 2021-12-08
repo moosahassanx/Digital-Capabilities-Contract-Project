@@ -18,15 +18,6 @@ const Main = () => {
     setWelcomeMessageOpen(false);
   }
 
-  // wait function for purpose delay
-  function wait(ms){
-    var start = new Date().getTime();
-    var end = start;
-    while(end < start + ms) {
-      end = new Date().getTime();
-   }
- }
-
 	return(
 		<div className="App">
       {/* display navigation bar */}
@@ -44,7 +35,8 @@ const Main = () => {
           // welcome message
           <div className='welcome-wrapper'>
             <h1>Introduction</h1>
-            <p>This tool assists in analysing your digital capability. No data is collected in this web application.</p>
+            <p>Using the Digital Capabilities Self-Assessment Tool is a quick and accurate way to measureyourself within each of the six digital capabilities in the framework. No data is collected in this web application.</p>
+            <p>No data is collected in this web application.</p>
             <button className='button' id='load-questions' onClick={loadQuestions}>Begin</button>
           </div>
         ) : (
