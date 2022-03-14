@@ -21,6 +21,7 @@ body
 .question
 {
     text-align: right;
+    text-transform: lowercase;
 }
 
 .answer
